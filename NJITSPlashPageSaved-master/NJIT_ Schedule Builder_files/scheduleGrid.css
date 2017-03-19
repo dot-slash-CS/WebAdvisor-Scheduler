@@ -1,0 +1,122 @@
+/*!
+ * Schedule builder
+ *
+ * Copyright (c) 2011, Edwin Choi
+ *
+ * Licensed under LGPL 3.0
+ * http://www.gnu.org/licenses/lgpl-3.0.txt
+ */
+
+.sv-view { width: 100%; position:relative; white-space:none;margin-left:auto; }
+.sv-lcol { float: left; margin-top:0; margin-right:0; }
+.sv-grid { float: left; margin-top:0;padding-top:0; }
+.sv-view table {
+    border-collapse: collapse;
+    border-spacing: 2px;
+    cursor: default;
+    color: #000;
+	outline: none;
+    overflow: auto;
+    margin: 0; padding: 0;
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    zoom:1;
+}
+.sv-lcol-table tr td {
+	height: 1.9em;
+	text-align: right;
+	border-bottom: 1px #aaa solid;
+	font-weight: bold;
+	vertical-align: text-top;
+	padding: 0 6px 0 0;
+}
+.sv-lcol-table tr td span { font-size: 0.9em; }
+.sv-lcol-table .even td { border-bottom: none; }
+.sv-grid .sv-grid-col { margin:0; padding:0; }
+.sv-grid-table { width: 100%; }
+.sv-view .sv-col-hdr { height: 18px; padding:0;margin:0; }
+.sv-lcol-table .sv-col-hdr { border-bottom: 1px #aaa solid; padding:0;border-top:1px transparent solid; }
+.sv-grid-table thead th {
+	border-top: 1px #aaa solid;
+	background: #dddfec;
+}
+.sv-grid { margin-top:0px; }
+.sv-grid-table tr td { height: 1.9em; border-bottom: 1px #bbb solid; background: #fff; }
+.sv-grid-table .sv-body-tbl-col { border-left: 1px #bbb solid; border-right: 1px #bbb solid; }
+.sv-view table .even td { border-top:1px #bbb solid; border-bottom: none; }
+.sv-view table .odd td { border-top:1px #ddd dotted; }
+.sv-view .sv-lcol table .odd td { border-top-color: transparent; }
+
+.sv-events-container {
+	position: absolute;
+	float:left;
+	top: 0;
+	left: 0;
+	zoom: 1;
+	overflow:hidden;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Changes>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.sv-event-title strong {
+	padding-right: 5px;
+}
+.sv-virtual-events {
+	margin-top: 8px;
+	margin-left: 2px;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Changes>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+.sv-event-title {
+    margin: 0 0 1px 0;
+}
+.sv-events-container .sv-event,
+.sv-virtual-events .sv-event {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #666;
+    cursor: default;
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Changes>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+    /*opacity: 0.84;*/
+    opacity: 0.9;
+    filter: alpha(opacity: 84);
+    /*font-size: 0.9em;*/
+    font-size: 0.95em;
+}
+.sv-events-container .sv-event-highlight,
+.sv-virtual-events .sv-event-highlight {
+	border: 1px solid #444;
+	opacity: 0.92;
+	filter: alpha(opacity: 92);
+}
+.sv-events-container .sv-event {
+    position: absolute;
+    float: left;
+    overflow: hidden;
+}
+.sv-events-container .sv-event .sv-closer,
+.sv-virtual-events .sv-event .sv-closer {
+	display: none;
+}
+.sv-events-container .sv-event-highlight .sv-closer,
+.sv-virtual-events .sv-event-highlight .sv-closer {
+	display: inline;
+}
+.sv-event-highlight .sv-closer:hover {
+	background-position: -96px -128px;
+}
+.sv-event-content {
+    padding: 2px 6px 6px 6px;
+}
+.sv-event-cancelled {
+	background-color: #ccc !important;
+	border-color: #333 !important;
+	color: #333;
+}
+
+.sv-events-container .ui-selected {
+	border-color: #ff0 !important;
+}
+
+.sv-event-content .sv-event-notes { margin-top: 4px; display:none; }
+.sv-event-content .sv-event-range { font-size: 0.95em; display:none; margin-bottom: 4px; }
+.sv-showrange .sv-event-range { display: block; }
+.sv-shownotes .sv-event-notes { display: block; }
