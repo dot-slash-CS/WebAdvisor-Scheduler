@@ -3,8 +3,8 @@ class Course:
 		self.sections = sections # array of section objects #
 		self.credits = credits # string #ex "3 credits" #
 		self.desc = desc #string description#
-		self.subject
-		self.course_number
+		self.subject = subject # string 'MATH'
+		self.course_number = string # '101A'
 
 
 class Section:
