@@ -245,7 +245,7 @@ class BitTimeConv:
         pre_et      = (bits & 0x7c000000) >> 27
         
         # Resolve end and start using information and adjust
-        #   the with the extra minutes 
+        #   them with the extra minutes 
         end = self.END - timedelta(seconds = from_end * self.T_UNIT - ap_et * self.SPM)
         start = end - timedelta(seconds = bin(bit_span).count('1') * self.T_UNIT - (pre_et - ap_et) * self.SPM )
 
