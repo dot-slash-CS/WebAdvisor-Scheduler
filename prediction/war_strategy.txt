@@ -9,8 +9,9 @@ As it is right now at this moment subject to change in the future:
 		Samah , Kaishin
 	compare:
 		Ifran , Hervin
+		Hamza , 
 	ourKey:
-		Christian
+		Christian , Thanh
 
 If you want to git in on one of these message slack channel prediction, 
 and also it'd be great if you push some changes to the list of people above.
@@ -32,7 +33,7 @@ compare( section_list , section ):
 
 
 
-schedule_iterator( section_list , course_list , schedule_list):
+schedule_iterator( section_list , course_list , schedule_list , iffy_list ):
 	"""
 	makes a schedule_list which is  list of courses with one section in it
 	this guy returns a boolean for now
@@ -47,6 +48,27 @@ ourKey( some_parameters ):
 	will sort courses by least sections to most sections
 	"""
 
+#container module 
+
+schedule_generator( course_list ):
+	
+	sort course_list with ourKey		#this is a small optimization 
+
+	instantiate empty schedule and iffy lists
+
+	call schedule_iterator with first course_list[0].sections[0]
+	call schedule_iterator with first course_list[0].sections[1]
+	call schedule_iterator with first course_list[0].sections[2]
+	. 
+	.
+	.
+
+	put schedule lists into courses for html to display
+
+	return list of schedules
+
+
+./Kaishin Kawada
 
 * sorry lame cs joke, but if you weren't at the last meeting ** I hate you, okay**?
 
@@ -54,4 +76,3 @@ ourKey( some_parameters ):
 	the ocd nerds in management, but on our branch is okay.
 	if you're good with words make sure to push that change.
 
-./Kaishin Kawada
