@@ -30,7 +30,7 @@ def schedule_iterator( section_list , course_list , schedule_list , iffy_list ):
                 success_list.append( status )
 
             #append iffy section list to iffy_list 
-            else if status == 1 :
+            elif status == 1:
                 section_list.append( i_section ) 
                 iffy_list.append( section_list ) 
                 success_list.append( status )
