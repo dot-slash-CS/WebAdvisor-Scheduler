@@ -7,6 +7,7 @@
 #returns a int 0,1,2 
 #corresponds, respectively, to good iffy and bad status
 
+#section_list contains a potential schedule which is being validate by curre nt iteration
 #schedule_list consists of good sections
 #iffy_list consists of a list with atleast one section with iffy status
 
