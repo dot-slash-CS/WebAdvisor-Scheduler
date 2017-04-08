@@ -1,5 +1,4 @@
-def check_location(test_one, test_two):         
-    result
+def check_location(test_one, test_two):
     if test_one.sections.meetings.campus == "Newark" and test_two.sections.meetings.campus == "Newark":
         result = "Good"
     elif test_one.sections.meetings.campus == "Fremont" and test_two.sections.meetings.campus == "Fremont":
@@ -10,10 +9,10 @@ def check_location(test_one, test_two):
 
 
 def check_time(test_one, test_two):
-    result
-    if test_one.sections.meetings.startTime <= test_two.sections.meetings.endTime and test_one.sections.meetings.endTime >= test_two.sections.meetings.startTime:
-        result = 0; #good
+    if test_one.sections.meetings.startTime == 0.00:
+        result = 0 #good
+    elif test_one.sections.meetings.startTime < test_two.sections.meetings.endTime and test_one.sections.meetings.endTime > test_two.sections.meetings.startTime:
+        result = 0 #good
     else:
-        result = 1; #bad
-        
+        result = 2 #bad
         
