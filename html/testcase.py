@@ -8,7 +8,7 @@ class Course:
 		self.course_number = course_number #string
 		self.title = title
 		self.desc = desc # string schedule description
-
+	
 
 class Section:
 	def __init__(self,startDate,endDate,meetings,section_number):
@@ -26,6 +26,8 @@ class Meeting:
 		self.professorName = professorName #name string
 		self.room = room #string
 		self.recurrence = recurrence #list of strings
+
+
 
 #MATH 101C
 coursecredit101C = "5.00"
@@ -146,4 +148,13 @@ section1022 = Section(CSsectionstartd2,CSsectionendd2,[meeting102C2A,meeting102C
 course101C = Course([section101C1,section101C2,section101C3],coursecredit101C,coursesubject101C,coursecourse101C,coursetitle101C,coursedesc101C)
 course102 = Course([section1021,section1022],coursecredit102,coursesubject102,coursecourse102,coursetitle102,coursedesc102)
 
-testcase = [course101C,course102]
+schedule1 = [Course([section101C2],coursecredit101C,coursesubject101C,coursecourse101C,coursetitle101C,coursedesc101C),Course(section1021,coursecredit102,coursesubject102,coursecourse102,coursetitle102,coursedesc102)]
+schedule2 = [Course([section101C3],coursecredit101C,coursesubject101C,coursecourse101C,coursetitle101C,coursedesc101C),Course(section1021,coursecredit102,coursesubject102,coursecourse102,coursetitle102,coursedesc102)]
+
+testcase = [schedule1,schedule2]
+
+
+
+# The test case is a list of lists of courses
+# testcase = [[Course1A,Course2A],[Course1B,Course2A]]
+# The courses contain a single section
