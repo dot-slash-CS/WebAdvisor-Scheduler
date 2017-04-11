@@ -15,14 +15,23 @@ class Course:
         # self.subject = subject  # VAR2
         # self.course_number = string  # VAR2
         # self.title = title # VAR1
-        soup = BeautifulSoup(page_list[0], 'lxml')
-        self.title = soup.find(id='VAR1').text
-        course_string = soup.find(id='VAR2').text
-        self.subject = subject_regex.search(course_string).group(0)
-        self.course_number = course_number_regex.search(course_string).group(1)
-        self.credits = soup.find(id='VAR4').text
-        self.desc = soup.find('input', {'name': 'VAR15'})['value']
-        self.sections = list(map(parse_html, page_list))
+        if page_list:
+            soup = BeautifulSoup(page_list[0], 'lxml')
+            self.title = soup.find(id='VAR1').text
+            course_string = soup.find(id='VAR2').text
+            self.subject = subject_regex.search(course_string).group(0)
+            self.course_number = course_number_regex.search(course_string).group(1)
+            self.credits = soup.find(id='VAR4').text
+            self.desc = soup.find('input', {'name': 'VAR15'})['value']
+            self.sections = list(map(parse_html, page_list))
+        else:
+            # TODO Handle empty page_list
+            self.title = ''
+            self.subject = ''
+            self.course_number = ''
+            self.credits = ''
+            self.desc = ''
+            self.sections = []
 
 
 def parse_html(html_string):
@@ -30,6 +39,7 @@ def parse_html(html_string):
     values = dict()
     # Get section number
     course_string = soup.find(id='VAR2').text
+    values['course_string'] = course_string
     values['section_number'] = section_number_regex.search(course_string).group(0)
     # Get meeting string
     values['meeting_string'] = soup.find('input', {'name': 'LIST.VAR12_1'})['value']
@@ -50,6 +60,7 @@ class Section:
         # self.meetings = meetings # LIST_VAR12_1
         # self.section_number = number  # string # "02" # VAR2
         # TODO self.faculty = list of faculty
+        self.course_string = values['course_string']
         self.section_number = values['section_number']
         self.start_date = values['start_date']
         self.end_date = values['end_date']

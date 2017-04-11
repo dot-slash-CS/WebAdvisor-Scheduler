@@ -47,6 +47,11 @@ def scrape_courses(**params):
     # Submit search parameters via the "SUBMIT" button
     driver.find_element_by_name('SUBMIT2').click()
 
+    # Check if results were returned, exit if not
+    if 'errorText' in driver.page_source:
+        driver.quit()
+        return []
+
     # Check how many pages of results were returned
     num_pages = int(re.search(r'Page \d+ of (\d+)', driver.page_source).group(1))
 
