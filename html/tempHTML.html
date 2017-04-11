@@ -8,17 +8,17 @@
 		<meta name="description" content="A site to help you find a schedule more easily and effectively. Or if you&#39;re feeling really lazy, this can also generate all valid combinations for a set of courses.">
 		<meta property="og:title" content="NJIT: Schedule Builder">
 		<meta property="og:type" content="website">
-		<title>NJIT: Schedule Builder</title>
+		<title>Ohlone College: Schedule Builder</title>
 		
 
-		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/claro.css">
+		<link rel="stylesheet" href="./OhloneScheduleBuilder/claro.css">
 		<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css"/>-->
-		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/jquery-ui.css">
+		<link rel="stylesheet" href="./OhloneScheduleBuilder/jquery-ui.css">
 		<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"/>-->
 
-		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/main.css">
-		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/print.css" media="print">
-		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/scheduleGrid.css">
+		<link rel="stylesheet" href="./OhloneScheduleBuilder/main.css">
+		<link rel="stylesheet" href="./OhloneScheduleBuilder/print.css" media="print">
+		<link rel="stylesheet" href="./OhloneScheduleBuilder/scheduleGrid.css">
 		<!--[if IE 7]>
 			<link rel="stylesheet" href="css/ie7.css"/>
 		<![endif]-->
@@ -33,7 +33,7 @@
 			.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Tahoma,Helvetica,Arial,sans-serif; font-size: 1em; }
 		</style>
 
-		<script src="./NJIT_ Schedule Builder_files/jquery.js.download"></script>
+		<script src="./OhloneScheduleBuilder/jquery.js.download"></script>
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 		<script>
 			var djConfig = { baseUrl: 'lib/' };
@@ -51,7 +51,7 @@
 			}
 		</script>
 
-				<script src="./NJIT_ Schedule Builder_files/require-2.0.6.js.download"></script>
+				<script src="./OhloneScheduleBuilder/require-2.0.6.js.download"></script>
 		<script>
 			require.config({waitSeconds: 30});
 			require(['include/datasvc.php?p=/'], function(result) {
@@ -63,30 +63,30 @@
 				$('#updtDt').html(result.update);
 				setTerm(result.term);
 			});
-		</script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="include/datasvc.php?p=/" src="./NJIT_ Schedule Builder_files/datasvc.php"></script>
+		</script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="include/datasvc.php?p=/" src="./OhloneScheduleBuilder/datasvc.php"></script>
 		<script defer="">
 			_gaq = [];
 		</script>
 
-		<script src="./NJIT_ Schedule Builder_files/json2.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/dojo.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/json2.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/dojo.js.download" defer=""></script>
 		<!--<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js" data-dojo-config="async: true" defer></script>-->
-		<script src="./NJIT_ Schedule Builder_files/scbldr.dojo.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/jquery-ui.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/raphael.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/toolbox.expose.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/tools.overlay.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/tools.tooltip.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/underscore-1.3.3.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/scbldr.dojo.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/jquery-ui.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/raphael.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/toolbox.expose.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/tools.overlay.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/tools.tooltip.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/underscore-1.3.3.js.download" defer=""></script>
 
-		<script src="./NJIT_ Schedule Builder_files/compat.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/autocomplete.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/messageport.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/worker.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/simplerpc.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/graph.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/timegrid.js.download" defer=""></script>
-		<script src="./NJIT_ Schedule Builder_files/site.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/compat.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/autocomplete.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/messageport.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/worker.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/simplerpc.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/graph.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/timegrid.js.download" defer=""></script>
+		<script src="./OhloneScheduleBuilder/site.js.download" defer=""></script>
 	</head>
 	<body class="claro">
 		<noscript>
@@ -102,9 +102,9 @@
 			});
 		</script>
 		<div id="page" style="width: 1272px;">
-			<div id="header" style="height: 42px;">
-				<a href="http://www.njit.edu/" target="_blank" style="float: left;">
-					<img src="./NJIT_ Schedule Builder_files/logo.png" alt="New Jersey Institute of Technology" width="150" height="50" id="njitlogo">
+			<div id="header" style="height: 45px;">
+				<a href="http://www.ohlone.edu/" target="_blank" style="float: left;">
+					<img src="./OhloneScheduleBuilder/ohlonelogo.jpg" alt="New Jersey Institute of Technology" width="170" height="45" id="njitlogo">
 				</a>
 				<h1 style="float: left; margin-left: 40px;"><a href="https://uisapppr3.njit.edu/scbldr/">Schedule Builder</a></h1>
 				<nav style="/*float: right;*/ margin-top: 25px;">
@@ -112,16 +112,6 @@
 				</nav>
 			</div>
 			<div id="content">
-				<div class="left">
-					<span style="height: 20px;">&nbsp;</span>
-					<hr>
-					<a class="ui-state-disabled" id="save" style="float: right; margin-right: 8px; display :none;" href="https://uisapppr3.njit.edu/scbldr/#" onclick="return false;">Publish</a>
-					<strong>Schedule</strong>
-					<ul class="filter-defs" id="scheduleSummary" style="list-style-type: none; margin: 0; padding: 8px 0;"></ul>
-					<div style="border-top: 1px #ccc solid; padding-top: 4px; padding-left: 4px">
-						<span id="totalCredits">0.00</span> Credits
-					</div>
-				</div>
 				<div class="center" style="width: 874.4px;">
 					<div id="xheader" style="height: 22px; margin-left: 54px; margin-bottom: 5px; margin-right: 2px;">
 						<table cellpadding="0" cellspacing="0" style="width: 100%; vertical-align: top;">
@@ -320,65 +310,115 @@
 				<div id="input_column" class="right">
 					<div style="position: relative;">
 						<!--<span style="color: blue">Note: Optionally, search by starting the course description with @ (e.g., '@found of computer').</span>-->
-						<span style="color: blue; padding-bottom: 2px">Search by course (e.g., 'cs341') or by its description with @ (e.g., '@found of comp').</span>
+						<span style="color: blue; padding-bottom: 2px"></span>
 						<hr>
 						<input type="button" class="ui-icon ui-icon-search" name="searchButton" id="submitButton" style="float: right; position: absolute; right: 0;">
 						<span class="dijitContentPaneLoading" id="loadingIcon" style="position: absolute; float: right; z-index: 1; right: 25px;"></span>
 						<input type="text" class="ui-autocomplete-input empty" name="search" id="search_input" value="Add course" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+					<hr>
+					<span style="color: red"></span>
+					<hr>
+					<div class="sec-view2 course-list dijitAccordionContainer dijitContainer dijitLayoutContainer" id="course_list" role="tablist" widgetid="course_list" style="overflow: hidden; height: 586px;">
+						<div class="dijitAccordionInnerContainer dijitAccordionInnerContainerSelected dijitSelected" id="Class_wrapper" dir lang widgetid="Class_button">
+							<div dojoattachevent="onclick:_onTitleClick" class="dijitAccordionTitle dijitAccordionTitleSelected dijitSelected" id="Class_button" dir lang widgetid="Class_button">
+								<div dojoattachpoint="titleNode,focusNode" dojoattachevent="onkeypress_onTitleKeyPress" class="dijitAccordionTitleFocus" role="tab" aria-expanded="true" aria-labelledby="Class_button_title" aria-selected="true" tabindex="o">
+									<span class="dijitInline dijitAccordionArrow" role="presentation"></span>
+									<span class="arrowTextUp" role="presentation">+</span>
+									<span class="arrowTextDown" role="presentation">-</span>
+									<span role="presentation" dojoattachpoint="titleTextNode" class="dijitAccordionText" id="Class_button_title" title>
+										<span class="course-name">LOGISTICS 069</span>
+										 (
+										<span class="course-credits">3.00</span>
+										)
+										<a class="close">Remove</a>
+										<br>
+									</span>
+								</div>
+							</div>
+							<div class="dijitAccordionChildWrapper" style="display: block;">
+								<div class="sec-table-container">
+									<table class="sec-table" id="tbl_classIE" datacourse="classIE" data-credits="3">
+										<tr style id="00001" data-name="classIE" data-title="TESTING RIGHT COL">
+											<td class="sec-input">
+												<input id="classIE_001" type="radio" name="classIE" value="00001">
+											</td>
+											<td class="sec-section">001</td>
+											<td class="sec-slots">
+												<table class="slots-table">
+													<tbody>
+														<tr>
+															<td class="slot-day">M</td>
+															<td class="slot-range">8:30am-9:55am</td>
+															<td class="slot-location">Ohlone</td>
+														</tr>
+														<tr>
+															<td class="slot-day">W</td>
+															<td class="slot-range">8:30am-9:55am</td>
+															<td class="slot-location">Ohlone</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+											<td class="sec-instructor">Juliard, Pickles</td>
+											<td class="sec-comments"></td>
+											<td class="sec-seats">0 / 100 </td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
 					</div>
-					<hr>
-					<span style="color: red">Note: Sections in red are full.</span>
-					<hr>
-					<div class="sec-view2 course-list dijitAccordionContainer dijitContainer dijitLayoutContainer" id="course_list" role="tablist" widgetid="course_list" style="overflow: hidden; height: 586px;"></div>
+					</div>
+					</div>
 				<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content" role="listbox" aria-activedescendant="ui-active-menuitem" style="z-index: 1; top: 0px; left: 0px; display: none;" aria-disabled="false"></ul></div>
 				<div id="fade" style="display: none;"></div>
 				<div id="load" style="display: none;">
 					<!--<strong>Loading...</strong>-->
 					<br>
-					<img id="loader" src="./NJIT_ Schedule Builder_files/spinner.gif">
+					<img id="loader" src="./OhloneScheduleBuilder/spinner.gif">
 				</div>
 			</div>
 			<footer id="footer" style="/*margin-top: 20px;*/">
 				<hr>
 				<div class="container">
 					<div id="note">
-						<span>Developed by Edwin Choi.</span>
+						<span>Developed by Dot-Slash Computer</span>
 						<br>
-						<span>Enhanced &amp; Maintained by University Information Systems.</span>
+						<span>Science Club</span>
 					</div>
 					<div id="address">
-						<a href="http://www.njit.edu/" target="_blank">New Jersey Institute of Technology</a>
+						<a href="http://www.ohlone.edu/" target="_blank">Ohlone College</a>
 						<br>
-						<span>University Heights</span>
-						<span>Newark, New Jersey 07102</span>
+						<span>43600 Mission Blvd</span>
+						<span>Fremont, CA 94539</span>
 					</div>
 					<ul id="footer_links">
 						<li>
-							<a href="http://www.njit.edu/about/key-contacts.php" target="_blank">Contact Us</a>
+							<a href="mailto:cin@dot-slash-cs.club" target="_blank">Contact Us</a>
 						</li>
 						<li>
-							<a href="http://www.njit.edu/about/visit/gettingtonjit.php" target="_blank">Maps &amp; Directions</a>
+							<a href="http://www.njit.edu/about/visit/gettingtonjit.php" target="_blank"></a>
 						</li>
 					</ul>
 					<ul id="footer_social">
 						<li>
 							<a href="http://www.facebook.com/pages/Newark-NJ/NJIT/7185471825" target="_blank" title="NJIT on Facebook">
-								<img src="./NJIT_ Schedule Builder_files/facebook.gif" width="15" height="16" alt="Facebook">
+								<img src="./OhloneScheduleBuilder/facebook.gif" width="15" height="16" alt="Facebook">
 							</a>
 						</li>
 						<li>
 							<a href="http://twitter.com/njit" target="_blank" title="NJIT on Twitter">
-								<img src="./NJIT_ Schedule Builder_files/twitter.gif" width="15" height="16" alt="Twitter">
+								<img src="./OhloneScheduleBuilder/twitter.gif" width="15" height="16" alt="Twitter">
 							</a>
 						</li>
 						<li>
 							<a href="http://youtube.com/njit" target="_blank" title="NJIT on YouTube">
-								<img src="./NJIT_ Schedule Builder_files/youtube.gif" width="15" height="16" alt="YouTube">
+								<img src="./OhloneScheduleBuilder/youtube.gif" width="15" height="16" alt="YouTube">
 							</a>
 						</li>
 						<li>
 							<a href="http://www.flickr.com/photos/njit" target="_blank" title="NJIT on Flickr">
-								<img src="./NJIT_ Schedule Builder_files/flickr.gif" width="15" height="16" alt="Flickr">
+								<img src="./OhloneScheduleBuilder/flickr.gif" width="15" height="16" alt="Flickr">
 							</a>
 						</li>
 					</ul>
@@ -438,7 +478,7 @@
 			</div>
 		</div>
 		<div id="infopanel">
-			<iframe src="./NJIT_ Schedule Builder_files/overview.html" style="border: none; padding: 0; margin: 0; width: 100%; height: 500px; padding-top: 30px;"></iframe>
+			<iframe src="./OhloneScheduleBuilder/overview.html" style="border: none; padding: 0; margin: 0; width: 100%; height: 500px; padding-top: 30px;"></iframe>
 		</div>
 		<div id="imagemodal"></div>
 		<div class="dialog" id="messagePanel" style="display: none; width: 362px; top: 50%; left: 37%">
@@ -452,4 +492,4 @@
 		</div>
 
 
-<div><div id="removeAd" style="position:fixed;width:100%;height:100%;background-color:#00006C;z-index: 99999999999999999999;display:none;top:0;left:0;opacity:0.99;"><iframe src="./NJIT_ Schedule Builder_files/saved_resource.html" style="width:0;height:0;display:none;"></iframe></div></div></body></html>
+<div><div id="removeAd" style="position:fixed;width:100%;height:100%;background-color:#00006C;z-index: 99999999999999999999;display:none;top:0;left:0;opacity:0.99;"><iframe src="./OhloneScheduleBuilder/saved_resource.html" style="width:0;height:0;display:none;"></iframe></div></div></body></html>
