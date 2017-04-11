@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!-- saved from url=(0034)https://uisapppr3.njit.edu/scbldr/ -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="dj_webkit dj_chrome dj_contentbox"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,85 +8,85 @@
 		<meta name="description" content="A site to help you find a schedule more easily and effectively. Or if you&#39;re feeling really lazy, this can also generate all valid combinations for a set of courses.">
 		<meta property="og:title" content="NJIT: Schedule Builder">
 		<meta property="og:type" content="website">
-		<title>Ohlone College: Schedule Builder</title>
+		<title>NJIT: Schedule Builder</title>
 		
 
-		<link rel="stylesheet" href="./OhloneScheduleBuilder/claro.css">
+		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/claro.css">
 		<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css"/>-->
-		<link rel="stylesheet" href="./OhloneScheduleBuilder/jquery-ui.css">
+		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/jquery-ui.css">
 		<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"/>-->
 
-		<link rel="stylesheet" href="./OhloneScheduleBuilder/main.css">
-		<link rel="stylesheet" href="./OhloneScheduleBuilder/print.css" media="print">
-		<link rel="stylesheet" href="./OhloneScheduleBuilder/scheduleGrid.css">
+		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/main.css">
+		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/print.css" media="print">
+		<link rel="stylesheet" href="./NJIT_ Schedule Builder_files/scheduleGrid.css">
 		<!--[if IE 7]>
 			<link rel="stylesheet" href="css/ie7.css"/>
 		<![endif]-->
 		<!--[if lt IE 8]>
-			<style type="text/css">.center {{ width:765px; }}</style>
+			<style type="text/css">.center { width:765px; }</style>
 		<![endif]-->
 		<style>
-			#xheader table {{ height: 22px; }}
-			#xheader table td {{ vertical-align:top; }}
-			.ui-widget {{ font-family: Tahoma,Helvetica,Arial,sans-serif; font-size: 1em; }}
-			.ui-widget .ui-widget {{ font-size: 1em; }}
-			.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {{ font-family: Tahoma,Helvetica,Arial,sans-serif; font-size: 1em; }}
+			#xheader table { height: 22px; }
+			#xheader table td { vertical-align:top; }
+			.ui-widget { font-family: Tahoma,Helvetica,Arial,sans-serif; font-size: 1em; }
+			.ui-widget .ui-widget { font-size: 1em; }
+			.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Tahoma,Helvetica,Arial,sans-serif; font-size: 1em; }
 		</style>
 
-		<script src="./OhloneScheduleBuilder/jquery.js.download"></script>
+		<script src="./NJIT_ Schedule Builder_files/jquery.js.download"></script>
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 		<script>
-			var djConfig = {{ baseUrl: 'lib/' }};
-			function setTerm(t) {{
-				if (window.localStorage) {{
+			var djConfig = { baseUrl: 'lib/' };
+			function setTerm(t) {
+				if (window.localStorage) {
 					var curr = localStorage.getItem('schedule:current_term');
-					if (!curr || curr != t) {{
-						if (curr) {{
+					if (!curr || curr != t) {
+						if (curr) {
 							alert('Current term changed from ' + curr + ' to ' + t + '\nDeleting previous Term data');
-						}}
+						}
 						localStorage.clear();
 						localStorage.setItem('schedule:current_term', t);
-					}}
-				}}
-			}}
+					}
+				}
+			}
 		</script>
 
-				<script src="./OhloneScheduleBuilder/require-2.0.6.js.download"></script>
+				<script src="./NJIT_ Schedule Builder_files/require-2.0.6.js.download"></script>
 		<script>
-			require.config({{waitSeconds: 30}});
-			require(['include/datasvc.php?p=/'], function(result) {{
-				if ('<?= TEST ?>') {{
+			require.config({waitSeconds: 30});
+			require(['include/datasvc.php?p=/'], function(result) {
+				if ('<?= TEST ?>') {
 					console.log(result);
-				}}
+				}
 				window.COURSE_DATA = result.data;
 				$('#schedTitle').html(result.term);
 				$('#updtDt').html(result.update);
 				setTerm(result.term);
-			}});
-		</script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="include/datasvc.php?p=/" src="./OhloneScheduleBuilder/datasvc.php"></script>
+			});
+		</script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="include/datasvc.php?p=/" src="./NJIT_ Schedule Builder_files/datasvc.php"></script>
 		<script defer="">
 			_gaq = [];
 		</script>
 
-		<script src="./OhloneScheduleBuilder/json2.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/dojo.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/json2.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/dojo.js.download" defer=""></script>
 		<!--<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js" data-dojo-config="async: true" defer></script>-->
-		<script src="./OhloneScheduleBuilder/scbldr.dojo.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/jquery-ui.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/raphael.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/toolbox.expose.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/tools.overlay.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/tools.tooltip.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/underscore-1.3.3.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/scbldr.dojo.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/jquery-ui.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/raphael.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/toolbox.expose.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/tools.overlay.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/tools.tooltip.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/underscore-1.3.3.js.download" defer=""></script>
 
-		<script src="./OhloneScheduleBuilder/compat.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/autocomplete.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/messageport.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/worker.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/simplerpc.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/graph.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/timegrid.js.download" defer=""></script>
-		<script src="./OhloneScheduleBuilder/site.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/compat.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/autocomplete.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/messageport.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/worker.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/simplerpc.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/graph.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/timegrid.js.download" defer=""></script>
+		<script src="./NJIT_ Schedule Builder_files/site.js.download" defer=""></script>
 	</head>
 	<body class="claro">
 		<noscript>
@@ -95,17 +94,17 @@
 		</noscript>
 		<div id="brwSpprt" style="display: none;">Your browser is not supported... time to upgrade.</div>
 		<script>
-			$(document).ready(function() {{
-				if ($.browser.mozilla && $.browser.version> '6') {{
+			$(document).ready(function() {
+				if ($.browser.mozilla && $.browser.version> '6') {
 					$('#brwSpprt').html('<h2>Known issue with Firefox. Use Chrome.</h2>').show();
 					$('#page').hide();
-				}}
-			}});
+				}
+			});
 		</script>
 		<div id="page" style="width: 1272px;">
-			<div id="header" style="height: 45px;">
-				<a href="http://www.ohlone.edu/" target="_blank" style="float: left;">
-					<img src="./OhloneScheduleBuilder/ohlonelogo.jpg" alt="New Jersey Institute of Technology" width="170" height="45" id="njitlogo">
+			<div id="header" style="height: 42px;">
+				<a href="http://www.njit.edu/" target="_blank" style="float: left;">
+					<img src="./NJIT_ Schedule Builder_files/logo.png" alt="New Jersey Institute of Technology" width="150" height="50" id="njitlogo">
 				</a>
 				<h1 style="float: left; margin-left: 40px;"><a href="https://uisapppr3.njit.edu/scbldr/">Schedule Builder</a></h1>
 				<nav style="/*float: right;*/ margin-top: 25px;">
@@ -113,6 +112,16 @@
 				</nav>
 			</div>
 			<div id="content">
+				<div class="left">
+					<span style="height: 20px;">&nbsp;</span>
+					<hr>
+					<a class="ui-state-disabled" id="save" style="float: right; margin-right: 8px; display :none;" href="https://uisapppr3.njit.edu/scbldr/#" onclick="return false;">Publish</a>
+					<strong>Schedule</strong>
+					<ul class="filter-defs" id="scheduleSummary" style="list-style-type: none; margin: 0; padding: 8px 0;"></ul>
+					<div style="border-top: 1px #ccc solid; padding-top: 4px; padding-left: 4px">
+						<span id="totalCredits">0.00</span> Credits
+					</div>
+				</div>
 				<div class="center" style="width: 874.4px;">
 					<div id="xheader" style="height: 22px; margin-left: 54px; margin-bottom: 5px; margin-right: 2px;">
 						<table cellpadding="0" cellspacing="0" style="width: 100%; vertical-align: top;">
@@ -126,14 +135,14 @@
 									</div>
 									<script>
 										var loadStep = 0;
-										setTimeout(function() {{
+										setTimeout(function() {
 											var lbox = document.getElementById('loadingBox');
-											if (lbox) {{
+											if (lbox) {
 												lbox.innerHTML = '<em>Loading' + ('.....'.substr(0, loadStep + 1)) + '</em>';
 												loadStep = (loadStep + 1) % 5;
 												setTimeout(arguments.callee, 250);
-											}}
-										}}, 250);
+											}
+										}, 250);
 									</script>
 								</td>
 								<td style="text-align: right;">
@@ -326,7 +335,7 @@
 				<div id="load" style="display: none;">
 					<!--<strong>Loading...</strong>-->
 					<br>
-					<img id="loader" src="./OhloneScheduleBuilder/spinner.gif">
+					<img id="loader" src="./NJIT_ Schedule Builder_files/spinner.gif">
 				</div>
 			</div>
 			<footer id="footer" style="/*margin-top: 20px;*/">
@@ -354,22 +363,22 @@
 					<ul id="footer_social">
 						<li>
 							<a href="http://www.facebook.com/pages/Newark-NJ/NJIT/7185471825" target="_blank" title="NJIT on Facebook">
-								<img src="./OhloneScheduleBuilder/facebook.gif" width="15" height="16" alt="Facebook">
+								<img src="./NJIT_ Schedule Builder_files/facebook.gif" width="15" height="16" alt="Facebook">
 							</a>
 						</li>
 						<li>
 							<a href="http://twitter.com/njit" target="_blank" title="NJIT on Twitter">
-								<img src="./OhloneScheduleBuilder/twitter.gif" width="15" height="16" alt="Twitter">
+								<img src="./NJIT_ Schedule Builder_files/twitter.gif" width="15" height="16" alt="Twitter">
 							</a>
 						</li>
 						<li>
 							<a href="http://youtube.com/njit" target="_blank" title="NJIT on YouTube">
-								<img src="./OhloneScheduleBuilder/youtube.gif" width="15" height="16" alt="YouTube">
+								<img src="./NJIT_ Schedule Builder_files/youtube.gif" width="15" height="16" alt="YouTube">
 							</a>
 						</li>
 						<li>
 							<a href="http://www.flickr.com/photos/njit" target="_blank" title="NJIT on Flickr">
-								<img src="./OhloneScheduleBuilder/flickr.gif" width="15" height="16" alt="Flickr">
+								<img src="./NJIT_ Schedule Builder_files/flickr.gif" width="15" height="16" alt="Flickr">
 							</a>
 						</li>
 					</ul>
@@ -429,7 +438,7 @@
 			</div>
 		</div>
 		<div id="infopanel">
-			<iframe src="./OhloneScheduleBuilder/overview.html" style="border: none; padding: 0; margin: 0; width: 100%; height: 500px; padding-top: 30px;"></iframe>
+			<iframe src="./NJIT_ Schedule Builder_files/overview.html" style="border: none; padding: 0; margin: 0; width: 100%; height: 500px; padding-top: 30px;"></iframe>
 		</div>
 		<div id="imagemodal"></div>
 		<div class="dialog" id="messagePanel" style="display: none; width: 362px; top: 50%; left: 37%">
@@ -443,4 +452,4 @@
 		</div>
 
 
-<div><div id="removeAd" style="position:fixed;width:100%;height:100%;background-color:#00006C;z-index: 99999999999999999999;display:none;top:0;left:0;opacity:0.99;"><iframe src="./OhloneScheduleBuilder/saved_resource.html" style="width:0;height:0;display:none;"></iframe></div></div></body></html>
+<div><div id="removeAd" style="position:fixed;width:100%;height:100%;background-color:#00006C;z-index: 99999999999999999999;display:none;top:0;left:0;opacity:0.99;"><iframe src="./NJIT_ Schedule Builder_files/saved_resource.html" style="width:0;height:0;display:none;"></iframe></div></div></body></html>
