@@ -1,3 +1,10 @@
+#################
+#The documentation in war_strategy.txt says we're using compare vs check
+#But its chill so long as you push the change to the war_strategy
+#with the exception that the final container function is named compare
+#Because that is an interface which is used outside of this module
+#################
+
 def check_location(test_one, test_two):
     if test_one.sections.meetings.campus == "Newark" and test_two.sections.meetings.campus == "Newark":
         result = "Good"
@@ -15,4 +22,11 @@ def check_time(test_one, test_two):
         result = 0 #good
     else:
         result = 2 #bad
+
+##########################
+# CONTAINER FUNCTION
+##########################
+
         
+def compare( section_list , section ):
+    
