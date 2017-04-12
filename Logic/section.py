@@ -1,3 +1,5 @@
+# DEPRECATED - DO NOT USE EXCEPT AS A REFERENCE
+
 import sys
 import re
 
