@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://uisapppr3.njit.edu/scbldr/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class="dj_webkit dj_chrome dj_contentbox"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="charset" content="utf-8">
+		<meta name="robots" content="all"> <!-- tell visiting robots it's OK to index this page -->
+		<meta name="keywords" content="ohlone, schedule builder, schedule maker, scheduler">
+		<meta name="description" content="A site to help you find a schedule more easily and effectively. Or if you&#39;re feeling really lazy, this can also generate all valid combinations for a set of courses.">
+		<meta property="og:title" content="Ohlone College: Schedule Builder">
+		<meta property="og:type" content="website">
+		<title>Ohlone College: Schedule Builder</title>
+		
+
+		<link rel="stylesheet" href="static/assets/OhloneScheduleBuilder/claro.css">
+		<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css"/>-->
+		<link rel="stylesheet" href="static/assets/OhloneScheduleBuilder/jquery-ui.css">
+		<!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css"/>-->
+
+		<link rel="stylesheet" href="static/assets/OhloneScheduleBuilder/main.css">
+		<link rel="stylesheet" href="static/assets/OhloneScheduleBuilder/print.css" media="print">
+		<link rel="stylesheet" href="static/assets/OhloneScheduleBuilder/scheduleGrid.css">
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="css/ie7.css"/>
+		<![endif]-->
+		<!--[if lt IE 8]>
+			<style type="text/css">.center { width:765px; }</style>
+		<![endif]-->
+		<style>
+			#xheader table { height: 22px; }
+			#xheader table td { vertical-align:top; }
+			.ui-widget { font-family: Tahoma,Helvetica,Arial,sans-serif; font-size: 1em; }
+			.ui-widget .ui-widget { font-size: 1em; }
+			.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Tahoma,Helvetica,Arial,sans-serif; font-size: 1em; }
+		</style>
+
+		<script src="static/assets/OhloneScheduleBuilder/jquery.js.download"></script>
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+		<script>
+			var djConfig = { baseUrl: 'lib/' };
+			function setTerm(t) {
+				if (window.localStorage) {
+					var curr = localStorage.getItem('schedule:current_term');
+					if (!curr || curr != t) {
+						if (curr) {
+							alert('Current term changed from ' + curr + ' to ' + t + '\nDeleting previous Term data');
+						}
+						localStorage.clear();
+						localStorage.setItem('schedule:current_term', t);
+					}
+				}
+			}
+		</script>
+
+				<script src="static/assets/OhloneScheduleBuilder/require-2.0.6.js.download"></script>
+		<script>
+			require.config({waitSeconds: 30});
+			require(['include/datasvc.php?p=/'], function(result) {
+				if ('<?= TEST ?>') {
+					console.log(result);
+				}
+				window.COURSE_DATA = result.data;
+				$('#schedTitle').html(result.term);
+				$('#updtDt').html(result.update);
+				setTerm(result.term);
+			});
+		</script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="include/datasvc.php?p=/" src="static/assets/OhloneScheduleBuilder/datasvc.php"></script>
+		<script defer="">
+			_gaq = [];
+		</script>
+
+		<script src="static/assets/OhloneScheduleBuilder/json2.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/dojo.js.download" defer=""></script>
+		<!--<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.3/dojo/dojo.js" data-dojo-config="async: true" defer></script>-->
+		<script src="static/assets/OhloneScheduleBuilder/scbldr.dojo.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/jquery-ui.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/raphael.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/toolbox.expose.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/tools.overlay.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/tools.tooltip.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/underscore-1.3.3.js.download" defer=""></script>
+
+		<script src="static/assets/OhloneScheduleBuilder/compat.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/autocomplete.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/messageport.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/worker.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/simplerpc.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/graph.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/timegrid.js.download" defer=""></script>
+		<script src="static/assets/OhloneScheduleBuilder/site.js.download" defer=""></script>
+	</head>
+	<body class="claro">
+		<noscript>
+				&lt;h4&gt;JavaScript is required to view this site.&lt;/h4&gt;
+		</noscript>
+		<div id="brwSpprt" style="display: none;">Your browser is not supported... time to upgrade.</div>
+		<script>
+			$(document).ready(function() {
+				if ($.browser.mozilla && $.browser.version> '6') {
+					$('#brwSpprt').html('<h2>Known issue with Firefox. Use Chrome.</h2>').show();
+					$('#page').hide();
+				}
+			});
+		</script>
+		<div id="page" style="width: 1272px;">
+			<div id="header" style="height: 45px;">
+				<a href="http://www.ohlone.edu/" target="_blank" style="float: left;">
+					<img src="static/assets/OhloneScheduleBuilder/ohlonelogo.jpg" alt="Ohlone College" width="170" height="45" id="njitlogo">
+				</a>
+				<h1 style="float: left; margin-left: 40px;"><a href="">Schedule Builder</a></h1>
+				<nav style="/*float: right;*/ margin-top: 25px;">
+					&nbsp;|&nbsp; <a id="infolink" href="">info</a>
+				</nav>
+			</div>
+		</div>
+	</body>
+</html>
