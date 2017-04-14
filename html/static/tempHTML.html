@@ -116,146 +116,255 @@
 					 |  <a href="" id="infolink">info</a>
 </nav>
 </div>
-<div style="width:100%;text-align:center;">
-	Fill Our Your Courses Here
-</div>
-<form action="calendar" method="post" name="datatelform" onsubmit="javascript:disableButton('SUBMIT2');">
-<table summary="This panel contains controls that are vertically  aligned.">
-<div id="courseselectionsss">
-<tr>
-<td colspan="2">
-<div class="vertical">
-<table class="layout" summary="This panel contains controls that are vertically  aligned.">
-<tbody>
-<tr>
-<td class="component combobox label"><label class="" for="VAR1" id="LABELID_VAR1">Term</label></td>
-<td class="control left">
+<div id="content">
+<div class="center" style="width: 874.4px;">
+<div id="xheader" style="height: 22px; margin-left: 54px; margin-bottom: 5px; margin-right: 2px;">
+<table cellpadding="0" cellspacing="0" style="width: 100%; vertical-align: top;">
+<tbody><tr>
+<td style="text-align: left">
 <div>
-<label class="hidden" for="VAR1"></label><select id="VAR1" name="VAR1"><option value=""></option><option value="2017SU">2017 Summer Term</option><option value="2017FA">2017 Fall Semester</option><option value="2017SP">2017 Spring Semester</option></select>
+<span id="schedTitle" style="font-weight: 700; font-size: 1.5em; padding-right: 10px;">Spring 2017</span>
+<!--<span>Last updated on: </span>
+										<span id="updtDt"></span>-->
 </div>
+<script>
+										var loadStep = 0;
+										setTimeout(function() {
+											var lbox = document.getElementById('loadingBox');
+											if (lbox) {
+												lbox.innerHTML = '<em>Loading' + ('.....'.substr(0, loadStep + 1)) + '</em>';
+												loadStep = (loadStep + 1) % 5;
+												setTimeout(arguments.callee, 250);
+											}
+										}, 250);
+									</script>
+</td>
+<td style="text-align: right;">
+<div id="sflinks">
+<span id="progress" style="margin-right: 6px;"></span>
+<div id="schedactions" style="display: inline; margin-right: 4px;">
+<button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" id="printButton" onclick="_gaq.push(['_trackEvent','print'])" role="button" title="Better printing support (does not include non-meeting courses). No support for any version of IE." type="button"><span class="ui-button-icon-primary ui-icon ui-icon-print"></span><span class="ui-button-text">Print</span></button>
+<button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" id="clearButton" role="button" type="button"><span class="ui-button-icon-primary ui-icon ui-icon-trash"></span><span class="ui-button-text">Clear</span></button>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div id="scheduleResultView" style="display: none; width:100%; margin: 0; padding: 0;"></div>
+<div class="sv-showrange sv-shownotes" id="scheduleView" style="margin: 0 auto;">
+<div class="sv-view sv-view-lr">
+<div class="sv-lcol">
+<table class="sv-lcol-table">
+<thead>
+<tr>
+<th class="sv-col-hdr"> </th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">8:00 am</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">9:00 am</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">10:00 am</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">11:00 am</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">12:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">1:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">2:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">3:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">4:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">5:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">6:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">7:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">8:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
+</td>
+</tr>
+<tr class="even">
+<td class="sv-row-hdr">
+<span class="time-label">9:00 pm</span>
+</td>
+</tr>
+<tr class="odd">
+<td class="sv-row-hdr">
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-</td>
-</tr>
-<tr>
-<td colspan="2">
-<div class="vertical">
-<table class="layout" summary="This panel contains controls that are vertically  aligned.">
+<div class="sv-grid" style="width: 822px;">
+<table class="sv-grid-table">
+<colgroup>
+<col class="sv-body-tbl-col" style="width: 16.666666666667%;"><col class="sv-body-tbl-col" style="width: 16.666666666667%;"><col class="sv-body-tbl-col" style="width: 16.666666666667%;"><col class="sv-body-tbl-col" style="width: 16.666666666667%;"><col class="sv-body-tbl-col" style="width: 16.666666666667%;"><col class="sv-body-tbl-col" style="width: 16.666666666667%;"> </col></col></col></col></col></col></colgroup>
+<thead>
+<tr class="sv-grid-hdr-row">
+<th class="sv-grid-col sv-col-hdr sv-day-2 sv-first-col" style="width: 16.666666666667%;"><span class="sv-grid-col-label">Monday</span></th><th class="sv-grid-col sv-col-hdr sv-day-3 " style="width: 16.666666666667%;"><span class="sv-grid-col-label">Tuesday</span></th><th class="sv-grid-col sv-col-hdr sv-day-4 " style="width: 16.666666666667%;"><span class="sv-grid-col-label">Wednesday</span></th><th class="sv-grid-col sv-col-hdr sv-day-5 " style="width: 16.666666666667%;"><span class="sv-grid-col-label">Thursday</span></th><th class="sv-grid-col sv-col-hdr sv-day-6 " style="width: 16.666666666667%;"><span class="sv-grid-col-label">Friday</span></th><th class="sv-grid-col sv-col-hdr sv-day-7 " style="width: 16.666666666667%;"><span class="sv-grid-col-label">Saturday</span></th> </tr>
+</thead>
 <tbody>
-<tr>
-<td colspan="2">
-<div class="envisionWindow" id="GROUP_Grp_LIST_VAR1">
-<table summary="Class Sections Information">
-<tbody>
-<tr>
-<th class="windowIdx"></th><th class="Grp_LIST_VAR1 left"><input name="LIST.VAR1_MAX" type="hidden" value="5">Subjects</input></th><th class="Grp_LIST_VAR1 left"><input name="LIST.VAR3_MAX" type="hidden" value="5">Course Number</input></th><th class="Grp_LIST_VAR1 left"><input name="LIST.VAR4_MAX" type="hidden" value="5">Section</input></th>
-</tr>
-<tr>
-<td class="windowIdx">1</td>
-<td class=" LIST_VAR1 left oddrow">
-<div>
-<label class="hidden" for="LIST_VAR1_1"></label><select id="LIST_VAR1_1" name="LIST.VAR1_1"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
-</div>
-</td>
-<td class=" LIST_VAR3 left oddrow">
-<div>
-<label class="hidden" for="LIST_VAR3_1"></label><input id="LIST_VAR3_1" maxlength="7" name="LIST.VAR3_1" size="7" type="text">
-</input></div>
-</td>
-<td class=" LIST_VAR4 left oddrow">
-<div>
-<label class="hidden" for="LIST_VAR4_1"></label><input id="LIST_VAR4_1" maxlength="5" name="LIST.VAR4_1" size="5" type="text">
-</input></div>
-</td>
-</tr>
-<tr>
-<td class="windowIdx">2</td><td class=" LIST_VAR1 left evenrow">
-<div>
-<label class="hidden" for="LIST_VAR1_2"></label><select id="LIST_VAR1_2" name="LIST.VAR1_2"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
-</div>
-</td>
-<td class=" LIST_VAR3 left evenrow">
-<div>
-<label class="hidden" for="LIST_VAR3_2"></label><input id="LIST_VAR3_2" maxlength="7" name="LIST.VAR3_2" size="7" type="text">
-</input></div>
-</td>
-<td class=" LIST_VAR4 left evenrow">
-<div>
-<label class="hidden" for="LIST_VAR4_2"></label><input id="LIST_VAR4_2" maxlength="5" name="LIST.VAR4_2" size="5" type="text">
-</input></div>
-</td>
-</tr>
-<tr>
-<td class="windowIdx">3</td>
-<td class=" LIST_VAR1 left oddrow">
-<div>
-<label class="hidden" for="LIST_VAR1_3"></label><select id="LIST_VAR1_3" name="LIST.VAR1_3"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
-</div>
-</td>
-<td class=" LIST_VAR3 left oddrow">
-<div>
-<label class="hidden" for="LIST_VAR3_3"></label><input id="LIST_VAR3_3" maxlength="7" name="LIST.VAR3_3" size="7" type="text">
-</input></div>
-</td>
-<td class=" LIST_VAR4 left oddrow">
-<div>
-<label class="hidden" for="LIST_VAR4_3"></label><input id="LIST_VAR4_3" maxlength="5" name="LIST.VAR4_3" size="5" type="text">
-</input></div>
-</td>
-</tr>
-<tr>
-<td class="windowIdx">4</td>
-<td class=" LIST_VAR1 left evenrow">
-<div>
-<label class="hidden" for="LIST_VAR1_4"></label><select id="LIST_VAR1_4" name="LIST.VAR1_4"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
-</div>
-</td>
-<td class=" LIST_VAR3 left evenrow">
-<div>
-<label class="hidden" for="LIST_VAR3_4"></label><input id="LIST_VAR3_4" maxlength="7" name="LIST.VAR3_4" size="7" type="text">
-</input></div>
-</td>
-<td class=" LIST_VAR4 left evenrow">
-<div>
-<label class="hidden" for="LIST_VAR4_4"></label><input id="LIST_VAR4_4" maxlength="5" name="LIST.VAR4_4" size="5" type="text">
-</input></div>
-</td>
-</tr>
-<tr>
-<td class="windowIdx">5</td>
-<td class=" LIST_VAR1 left oddrow">
-<div>
-<label class="hidden" for="LIST_VAR1_5"></label><select id="LIST_VAR1_5" name="LIST.VAR1_5"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
-</div>
-</td>
-<td class=" LIST_VAR3 left oddrow">
-<div>
-<label class="hidden" for="LIST_VAR3_5"></label><input id="LIST_VAR3_5" maxlength="7" name="LIST.VAR3_5" size="7" type="text">
-</input></div>
-</td>
-<td class=" LIST_VAR4 left oddrow">
-<div>
-<label class="hidden" for="LIST_VAR4_5"></label><input id="LIST_VAR4_5" maxlength="5" name="LIST.VAR4_5" size="5" type="text">
-</input></div>
-</td>
-</tr>
-</tbody>
+<tr class="sv-grid-row even" data-time="8:00 am"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="8:30 am"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="9:00 am"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="9:30 am"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="10:00 am"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="10:30 am"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="11:00 am"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="11:30 am"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="12:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="12:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="1:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="1:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="2:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="2:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="3:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="3:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="4:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="4:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="5:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="5:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="6:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="6:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="7:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="7:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="8:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="8:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row even" data-time="9:00 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr><tr class="sv-grid-row odd" data-time="9:30 pm"><td class="sv-grid-col sv-grid-cell sv-day-2 sv-first-col"></td><td class="sv-grid-col sv-grid-cell sv-day-3 "></td><td class="sv-grid-col sv-grid-cell sv-day-4 "></td><td class="sv-grid-col sv-grid-cell sv-day-5 "></td><td class="sv-grid-col sv-grid-cell sv-day-6 "></td><td class="sv-grid-col sv-grid-cell sv-day-7 "></td></tr> </tbody>
 </table>
+<!--
+								This container holds the actual event on the calendar
+								-->
+<div class="sv-events-container" style="top: 18.4px; left: 48.8px; width: 821px; height: 605px;">
+<div class="sv-event ui-corner-all course-color-1" day="4" end="9:55am" evtid="00001" id="evt_00001_1" name="CS" start="8:30am" style="top: 21.9643px; height: 58.3988px; width:145px; left: 358px;" type="course">
+<span class="sv-closer ui-icon ui-icon-close" style="float:right;position:relative;"></span>
+<div class="sv-event-content">
+<div class="sv-event-title">
+<strong>CS 102-01 (3)</strong>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
+<span class="sv-event-location" style="/*display: block; margin-top: 1px*/">8:30am-9:55am @ Ohlone</span>
+<span class="sv-event-notes">Learn Logic Now!</span>
 </div>
-</td>
-</tr>
 </div>
-</table>
-<div style="text-align: center;">
-<input id="SUBMIT2" name="SUBMIT2" type="submit" value="Generate Schedule"/>
 </div>
-</form></div>
+<!--
+								END OF CONTAINER
+								-->
+<!--
+								This container holds the actual event on the calendar
+								-->
+<div class="sv-events-container" style="top: 18.4px; left: 48.8px; width: 821px; height: 605px;">
+<div class="sv-event ui-corner-all course-color-2" day="2" end="5:30pm" evtid="00002" id="evt_00002_1" name="MATH" start="2:15pm" style="top: 21.9643px; height: 58.3988px; width:145px; left: 358px;" type="course">
+<span class="sv-closer ui-icon ui-icon-close" style="float:right;position:relative;"></span>
+<div class="sv-event-content">
+<div class="sv-event-title">
+<strong>LOGISTICS 069-001 (3)</strong>
+</div>
+<span class="sv-event-location" style="/*display: block; margin-top: 1px*/">8:30am-9:55am @ Ohlone</span>
+<span class="sv-event-notes">Learn Logic Now!</span>
+</div>
+</div>
+</div>
+<!--
+								END OF CONTAINER
+								-->
+<div class="sv-virtual-events" style="width: 821px;">
+<strong>Non-meeting courses</strong>
+</div>
+</div>
+<div style="clear: both"></div>
+</div>
+</div>
+</div>
+<div class="right" id="input_column">
+<div style="position: relative;">
+<!--<span style="color: blue">Note: Optionally, search by starting the course description with @ (e.g., '@found of computer').</span>-->
+<span style="color: blue; padding-bottom: 2px"></span>
+<input class="ui-icon ui-icon-search" id="submitButton" name="searchButton" style="float: right; position: absolute; right: 0;" type="button">
+<span class="dijitContentPaneLoading" id="loadingIcon" style="position: absolute; float: right; z-index: 1; right: 25px;"></span>
+<div class="sec-view2 course-list dijitAccordionContainer dijitContainer dijitLayoutContainer" id="course_list" role="tablist" style="overflow: hidden; height: 586px;" widgetid="course_list">
+<!--
+					
+					In this section we need to have radio buttons for each different schedule. When the radio button is selected, the corresponding schedule will show. We don't need multiple different containers.
+
+					-->
+<form>
+<input checked="" name="schedule" type="radio" value="S1">Schedule 1<br>
+<input name="schedule" type="radio" value="S2">Schedule 2<br>
+<input name="schedule" type="radio" value="S3">Schedule 3<br>
+<!-- END OF SECTION -->
+</br></input></br></input></br></input></form></div>
+</input></div>
+</div>
+<ul aria-activedescendant="ui-active-menuitem" aria-disabled="false" class="ui-autocomplete ui-menu ui-widget ui-widget-content" role="listbox" style="z-index: 1; top: 0px; left: 0px; display: none;"></ul></div></div>
 </body>
