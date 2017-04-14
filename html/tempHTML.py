@@ -8,11 +8,11 @@ def tempHTML(call):
 	if call == "home":
 		# home.html contains the html code for the form that will pop up first to ask the user for all the courses they want on their schedule
 		home = BeautifulSoup(open("home.html","r").read(),'html.parser')
-		template.body.append(home)
+		template.find(id="page").append(home)
 	elif call == "calendar":
 		# calendar.html contains the html code for the calendar portion of the schedule builder
 		calendar = BeautifulSoup(open("calendar.html","r").read(),'html.parser')
-		template.body.append(calendar)
+		template.find(id="page").append(calendar)
 	return str(template)
 
 # saves [text] to indicated [filename]

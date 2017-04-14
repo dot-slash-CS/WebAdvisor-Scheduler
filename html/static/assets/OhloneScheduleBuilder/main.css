@@ -99,7 +99,7 @@ basic layout
 #header img {border: 5px rgb(238,201,84);}
 
 #content {
-	margin: 0 6px;
+	margin: 0 0px;
 	/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<Changes>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 /*	padding: 8px 0;*/
 	padding: 0 0;
@@ -323,7 +323,7 @@ div.thumbs-container { margin: 0 2px 0 auto; }
 
 
 /*
- * MAIN PAGE ELEMENT SPECIFIC SHIT
+ * MAIN PAGE ELEMENT SPECIFIC
  */
 input.empty { color: #777; }
 input#search_input { width: 97%; margin:0; padding-left:2px; }
