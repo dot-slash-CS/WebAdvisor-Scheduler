@@ -390,3 +390,13 @@ ul#scheduleList a:hover { cursor: pointer; }
 
 .dijitAccordionText a.close { font-style: italic; color: #999; float:right; position:relative; margin-top:-1px; }
 .dijitAccordionText a:hover.close { cursor: pointer; color: #333; }
+
+/*
+List
+*/
+
+.no-bullet {
+	list-style-type: none;
+	text-align: center;
+}
+

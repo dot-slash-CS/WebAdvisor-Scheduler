@@ -1,28 +1,139 @@
-<form action="calendar" method="post">
-	<ul>
-		<li>
-			<select>
-				<option value=""/>
-				<option name="dept1" value="MATH">Mathematics</option>
-				<option name="dept1" value="CS">Computer Science</option>
-			</select>
-			<input type="text" name="course1"/>
-		</li>
-		<li>
-			<select>
-				<option value=""/>
-				<option name="dept2" value="MATH">Mathematics</option>
-				<option name="dept2" value="CS">Computer Science</option>
-			</select>
-			<input type="text" name="course2"/>
-		</li>
-		<li>
-			<select>
-				<option value=""/>
-				<option name="dept3" value="MATH">Mathematics</option>
-				<option name="dept3" value="CS">Computer Science</option>
-			</select>
-			<input type="text" name="course3"/>
-		</li>		
-		<input type="submit" value="Get My Schedule">
+<p>Fill Out Your Courses Here</p>
+<form name="datatelform" action="calendar" method="post" onsubmit="javascript:disableButton('SUBMIT2');">
+	<table align="center" summary="This panel contains controls that are vertically  aligned.">
+		<tr>
+			<td colspan="2">
+				<div class="vertical">
+					<table class="layout" summary="This panel contains controls that are vertically  aligned.">
+						<tbody>
+							<tr>
+								<td class="component combobox label"><label id="LABELID_VAR1" class="" for="VAR1">Term</label></td>
+								<td class="control left">
+									<div>
+										<label class="hidden" for="VAR1"></label><select name="VAR1" id="VAR1"><option value=""></option><option value="2017SU">2017 Summer Term</option><option value="2017FA">2017 Fall Semester</option><option value="2017SP">2017 Spring Semester</option></select>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="vertical">
+					<table class="layout" summary="This panel contains controls that are vertically  aligned.">
+						<tbody>
+							<tr>
+								<td colspan="2">
+									<div class="envisionWindow" id="GROUP_Grp_LIST_VAR1">
+										<table summary="Class Sections Information">
+											<tbody>
+												<tr>
+													<th class="windowIdx"></th><th class="Grp_LIST_VAR1 left"><input type="hidden" name="LIST.VAR1_MAX" value="5">Subjects</th><th class="Grp_LIST_VAR1 left"><input type="hidden" name="LIST.VAR3_MAX" value="5">Course Number</th><th class="Grp_LIST_VAR1 left"><input type="hidden" name="LIST.VAR4_MAX" value="5">Section</th>
+												</tr>
+												<tr>
+													<td class="windowIdx">1</td>
+													<td class=" LIST_VAR1 left oddrow">
+														<div>
+															<label class="hidden" for="LIST_VAR1_1"></label><select name="LIST.VAR1_1" id="LIST_VAR1_1"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
+														</div>
+													</td>
+													<td class=" LIST_VAR3 left oddrow">
+														<div>
+															<label class="hidden" for="LIST_VAR3_1"></label><input id="LIST_VAR3_1" type="text" name="LIST.VAR3_1" maxlength="7" size="7">
+														</div>
+													</td>
+													<td class=" LIST_VAR4 left oddrow">
+														<div>
+															<label class="hidden" for="LIST_VAR4_1"></label><input id="LIST_VAR4_1" type="text" name="LIST.VAR4_1" maxlength="5" size="5">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td class="windowIdx">2</td><td class=" LIST_VAR1 left evenrow">
+														<div>
+															<label class="hidden" for="LIST_VAR1_2"></label><select name="LIST.VAR1_2" id="LIST_VAR1_2"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
+														</div>
+													</td>
+													<td class=" LIST_VAR3 left evenrow">
+														<div>
+															<label class="hidden" for="LIST_VAR3_2"></label><input id="LIST_VAR3_2" type="text" name="LIST.VAR3_2" maxlength="7" size="7">
+														</div>
+													</td>
+													<td class=" LIST_VAR4 left evenrow">
+														<div>
+															<label class="hidden" for="LIST_VAR4_2"></label><input id="LIST_VAR4_2" type="text" name="LIST.VAR4_2" maxlength="5" size="5">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td class="windowIdx">3</td>
+													<td class=" LIST_VAR1 left oddrow">
+														<div>
+															<label class="hidden" for="LIST_VAR1_3"></label><select name="LIST.VAR1_3" id="LIST_VAR1_3"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
+														</div>
+													</td>
+													<td class=" LIST_VAR3 left oddrow">
+														<div>
+															<label class="hidden" for="LIST_VAR3_3"></label><input id="LIST_VAR3_3" type="text" name="LIST.VAR3_3" maxlength="7" size="7">
+														</div>
+													</td>
+													<td class=" LIST_VAR4 left oddrow">
+														<div>
+															<label class="hidden" for="LIST_VAR4_3"></label><input id="LIST_VAR4_3" type="text" name="LIST.VAR4_3" maxlength="5" size="5">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td class="windowIdx">4</td>
+													<td class=" LIST_VAR1 left evenrow">
+														<div>
+															<label class="hidden" for="LIST_VAR1_4"></label><select name="LIST.VAR1_4" id="LIST_VAR1_4"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
+														</div>
+													</td>
+													<td class=" LIST_VAR3 left evenrow">
+														<div>
+															<label class="hidden" for="LIST_VAR3_4"></label><input id="LIST_VAR3_4" type="text" name="LIST.VAR3_4" maxlength="7" size="7">
+														</div>
+													</td>
+													<td class=" LIST_VAR4 left evenrow">
+														<div>
+															<label class="hidden" for="LIST_VAR4_4"></label><input id="LIST_VAR4_4" type="text" name="LIST.VAR4_4" maxlength="5" size="5">
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td class="windowIdx">5</td>
+													<td class=" LIST_VAR1 left oddrow">
+														<div>
+															<label class="hidden" for="LIST_VAR1_5"></label><select name="LIST.VAR1_5" id="LIST_VAR1_5"><option value=""></option><option value="AF">Air Force</option><option value="AH">Allied Health</option><option value="AJ">Administration of Justice</option><option value="ANTH">Anthropology</option><option value="ARBC">Arabic</option><option value="ARMY">Army ROTC</option><option value="ART">Art</option><option value="ASL">American Sign Language</option><option value="ASTR">Astronomy</option><option value="ATHL">Athletics</option><option value="BA">Business Administration</option><option value="BIOL">Biology</option><option value="BIOT">Biotechnology</option><option value="BRDC">Broadcasting</option><option value="BSM">Business Supervision/Mgmt</option><option value="CAOT">Computer Apps &amp; Occup Tech</option><option value="CFS">Consumer &amp; Family Science</option><option value="CHEM">Chemistry</option><option value="CHIN">Chinese</option><option value="CHMT">Chemical Technology</option><option value="CHS">Chicano/Latino Studies</option><option value="CNET">Comp, Networks, Emerging Tech</option><option value="CO">Correctional Officer</option><option value="COMM">Communication</option><option value="CS">Computer Science</option><option value="DEAF">Deaf Preparatory Program</option><option value="ECS">Early Childhood Studies</option><option value="EDUC">Education</option><option value="ELI">English Language Institute</option><option value="ENGI">Engineering</option><option value="ENGL">English</option><option value="ENVS">Environmental Studies</option><option value="ESL">English As a Second Language</option><option value="ETEC">Engineering Technology</option><option value="FREN">French</option><option value="FT">Fire Technology</option><option value="GA">Graphic Art/Computer Graphics</option><option value="GEOG">Geography</option><option value="GEOL">Geology</option><option value="HIST">History</option><option value="HLTH">Health</option><option value="ID">Interior Design</option><option value="INT">Interpreter Preparation Prog</option><option value="IS">Interdisciplinary Studies</option><option value="JOUR">Journalism</option><option value="JPNS">Japanese</option><option value="KIN">Kinesiology</option><option value="LE">Law Enforcement</option><option value="LS">Library Science</option><option value="LSP">Learning Skills Program</option><option value="MATH">Mathematics</option><option value="MM">Multimedia</option><option value="MUS">Music</option><option value="NUR">Nursing</option><option value="PD">Personal Development</option><option value="PE">Physical Education</option><option value="PHIL">Philosophy</option><option value="PHYS">Physics</option><option value="PS">Political Science</option><option value="PSY">Psychology</option><option value="PTA">Physical Therapist Assistant</option><option value="RE">Real Estate</option><option value="RT">Respiratory Therapy</option><option value="SOC">Sociology</option><option value="SPAN">Spanish</option><option value="TD">Theatre and Dance</option><option value="WEX">Work Experience Education</option><option value="WS">Gender and Women's Studies</option></select>
+														</div>
+													</td>
+													<td class=" LIST_VAR3 left oddrow">
+														<div>
+															<label class="hidden" for="LIST_VAR3_5"></label><input id="LIST_VAR3_5" type="text" name="LIST.VAR3_5" maxlength="7" size="7">
+														</div>
+													</td>
+													<td class=" LIST_VAR4 left oddrow">
+														<div>
+															<label class="hidden" for="LIST_VAR4_5"></label><input id="LIST_VAR4_5" type="text" name="LIST.VAR4_5" maxlength="5" size="5">
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</td>
+		</tr>
+		<tr>
+	</table>
+	<div style="text-align: center;">
+		<input  type="submit" id="SUBMIT2" value="Generate Schedule" name="SUBMIT2"/>
+	</div>
 </form>
