@@ -22,7 +22,7 @@ def schedule_iterator( section_list , course_list , schedule_list , iffy_list ):
         for i_section in course_list[0].sections:
             
             #check for good , iffy , or bad class time/location
-            status =  check( section_list , i_section ) 
+            status =  compare( section_list , i_section ) 
             
             #append good section list to schedule_list
             if status == 0:
@@ -46,7 +46,7 @@ def schedule_iterator( section_list , course_list , schedule_list , iffy_list ):
     else:                               #course_list is greater than 1
         for i_section in course_list[0].sections:
             #check for good , iffy , or bad class time/location
-            status =  check( section_list , i_section ) 
+            status =  compare( section_list , i_section ) 
             
             if status == 0 or status == 1 :
                 section_list.append( i_section )
@@ -59,10 +59,10 @@ def schedule_iterator( section_list , course_list , schedule_list , iffy_list ):
 ##  return 
 ##########################
     #schedule_list contains good schedules
-    if success_list.contains( 0 ):
+    if success_list.count( 0 ) > 0 :
         status = 0
     #iffy_list contains iffy schedules
-    else if success_list.contains( 1 ):
+    elif success_list.count( 1 ) > 0 :
         status = 1
     #schedule list contains no iffy or good schedules
     else:
