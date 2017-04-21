@@ -1,11 +1,19 @@
 from flask import Flask, request
+from flaskext.mysql import MySQL
 import tempHTML
 
 application = Flask(__name__)
+mysql = MySQL()
+application.config['MYSQL_DATABASE_DB'] = "Schedules"
+application.config['MYSQL_DATABASE_HOST'] = "localhost"
+application.config['MYSQL_DATABASE_USER'] = "root"
+application.config['MYSQL_DATABASE_PASSWORD'] = "password"
+mysql.init_app(application)
 
 # this is the first route that will be called when the website is accessed
 @application.route("/")
 def index():
+
 	tempHTML.main("home")
 	return application.send_static_file("tempHTML.html")
 
