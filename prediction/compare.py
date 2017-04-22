@@ -8,16 +8,26 @@ import datetime
 class MeetingWrapper:
     """Wraps a meeting object and adds a 'day' field"""
     def __init__(self, meeting, day):
-        self.meeting = meeting # the meeting object to be wrapped
-        self.day     = day     # day of the week the meeting takes place on
+        self.meeting       = meeting # the raw meeting object to be wrapped
+        self.day           = day     # the day of the week the meeting is on
+        self.meetingType   = meeting.meetingType
+        self.campus        = meeting.campus
+        self.startTime     = meeting.startTime
+        self.endTime       = meeting.endTime
+        self.professorName = meeting.professorName
+        self.room          = meeting.room
+        self.recurrence    = meeting.recurrence
 
 # Takes a meeting object (LogicComm's version) as a parameter
 #
-# Returns a list of meeting objects that represent the one meeting parameter
-# except split into different days of the week based on meeting.recurrence
+# Returns a list of MeetingWrapper objects that represent the one meeting
+# parameter except split into different days of the week based on
+# meeting.recurrence
 def split_meeting(meeting):
-    # TODO
-    pass
+    meetings_wrapped = []
+    for day_of_week in meeting.recurrence:
+        meetings_wrapped.append(MeetingWrapper(meeting, day_of_week))
+    return meetings_wrapped
 
 # Returns list of pairs of meetings that overlap
 def overlapped_meeting_times(section1, section2):
