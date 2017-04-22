@@ -42,7 +42,7 @@ class MeetingWrapper:
         if self.day == other_meeting.day:
             earlier = min(meeting1, meeting2, key=lambda m: m.startTime)
             later   = max(meeting1, meeting2, key=lambda m: m.startTime)
-            return (later.startTime - earlier.endTime).total_seconds() <= -allowance
+            return (later.startTime - earlier.endTime).total_seconds() < -allowance
         return False
 
 
@@ -70,14 +70,18 @@ def overlapped_meeting_times(section1, section2):
 
     return overlap
 
-
 # Takes a list of pairs of meeting objects whose times overlap
 #
 # Returns true if ALL meetings that are overlapping can be resolved based on
 # location and duration of overlap
 def can_be_resolved(omts):
-    # TODO
-    pass
+    # 15 minutes = 900 seconds
+    allowance = 900
+    for m_pair in omts:
+        earlier, later = min(m_pair), max(m_pair)
+        if m_pair[0].overlaps_with(m_pair[1], allowance):
+            return False
+    return True
         
 def compare(section_list, section):
     # success_lis good iffy and bad status
