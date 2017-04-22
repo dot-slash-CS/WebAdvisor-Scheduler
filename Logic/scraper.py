@@ -1,4 +1,5 @@
-import os, re
+import os
+import re
 
 # Use the Selenium WebDriver to access internet
 from selenium import webdriver
@@ -6,7 +7,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 
 
-def scrape_courses(**params):
+def scrape_courses(debug=False, **params):
     """Returns the courses that meet the specified criteria.
 
     Arg data -- key-value pairs or a dictionary. Keys are strings corresponding to search fields. Values are the values
@@ -15,10 +16,11 @@ def scrape_courses(**params):
     # Instantiate WebDriver; assumes executables are in the same directory as this script
 
     # GUI browser, for testing
-    driver = webdriver.Chrome(os.path.join(os.path.abspath(os.path.dirname(__file__)), "chromedriver"))
-
-    # Headless browser, for deploying
-    # driver = webdriver.PhantomJS(os.path.join(os.path.abspath(os.path.dirname(__file__)), "phantomjs"))
+    if debug:
+        driver = webdriver.Chrome(os.path.join(os.path.abspath(os.path.dirname(__file__)), "chromedriver"))
+    else:
+        driver = webdriver.PhantomJS(os.path.join(os.path.abspath(os.path.dirname(__file__)), "phantomjs"))
+        driver.set_window_size(1280, 1024)
 
     # Access WebAdvisor main page
     driver.get("https://webadvisor.ohlone.edu/WebAdvisor/WebAdvisor")
@@ -68,16 +70,25 @@ def scrape_courses(**params):
             driver.find_element_by_id(id).click()
             # Switch to entry tab
             driver.switch_to.window(driver.window_handles[-1])
-
+            # driver.set_window_size(1280, 1024)
             # Read data from tab
-            courses.append(driver.page_source)
 
-            driver.close()
-            driver.switch_to.window(driver.window_handles[0])
+            try:
+                driver.find_element_by_name('CLOSE WINDOW2')
+                courses.append(driver.page_source)
+                driver.find_element_by_name('CLOSE WINDOW2').click()
+            except NoSuchElementException:
+                print("Invalid Data")
+                with open(id + '.html', 'w') as f:
+                    f.write(driver.page_source)
+                driver.close()
+
             entry += 1
+            driver.switch_to.window(driver.window_handles[0])
             id = 'SEC_SHORT_TITLE_' + str(entry)
         # Clicks "Next" button
         driver.find_elements_by_name("ACTION*Grp:WSS.COURSE.SECTIONS")[2].click()
+    driver.delete_all_cookies()
     driver.quit()
 
     return courses

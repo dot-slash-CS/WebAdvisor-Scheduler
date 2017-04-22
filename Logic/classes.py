@@ -39,6 +39,7 @@ def parse_html(html_string):
     values = dict()
     # Get section number
     course_string = soup.find(id='VAR2').text
+
     values['course_string'] = course_string
     values['section_number'] = section_number_regex.search(course_string).group(0)
     # Get meeting string
