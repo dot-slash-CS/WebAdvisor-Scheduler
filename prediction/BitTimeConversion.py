@@ -253,7 +253,56 @@ class BitTimeConv:
         return ( time( int(start.seconds / self.SPH), int( (start.seconds % self.SPH) / self.SPM)) ,
                  time( int(end.seconds / self.SPH), int( (end.seconds % self.SPH) / self.SPM)) )
                 
+    
+    def compare(self, t1, t2):
+        """ Compare two time durations
 
+            Inputs:
+                @param t1, t2:  A bitwise representation of the time periods to compare
+
+            Outputs:
+                @return:        -@return > -1, if the times do not overlap and 
+                                    if @return <= -1, it represents the number of 15 minute gaps
+                                    if 0 > @return > -1, @return * 100 represents the number of minutes apart the time
+                                -@return < 0, if the times overlap where:
+                                    if @return <= -1, it represents the number of 15 minute gaps of overlap
+                                    if 0 > @return > -1, @return * 100 represents the number of minutes of overlap between the times
+        """
+        
+        # Makes sures inputs are of the bit_times
+        t1 = self.to_bits_conv(t1) if  isinstance(t1, type(time)) else t1
+        t2 = self.to_bits_conv(t2) if  isinstance(t2, type(time)) else t2
+        
+        # Use bitmasks to get relevant information first
+        bitspan_t1, bitspan_t2      = t1 & 0xffff, t2 & 0xffff
+        from_end_t1, from_end_t2    = (t1 & 0x3f0000)   >> 16, (t2 & 0x3f0000)   >> 16
+
+        
+        # Expand the durations into full day ( 3:00am - 11:00pm )
+        exp_t1, exp_t2 = bitspan_t1 << from_end_t1, bitspan_t1 << from_end_t2
+
+        # Check for any collision between the schedule
+        if (exp_t1 & exp_t2):
+            # The schedule has a bit that they share, meaning they conflict
+            res = bin(exp_t1 ^ exp_t2)
+            return -(res.count('1'));
+        
+        else:
+            # Gets the number of zeros between the two times
+            res = bin(exp_t1 ^ exp_t2)
+            
+            gap = res.strip('0').count('0')
+
+            if gap:
+                return gap
+            else:
+                # Find the index of the time duration that is earlier
+                earlier_indx = (from_end_t2 + bin(bitspan_t2).count('1') > from_end_t1 + bin(bitspan_t1).count('1') )
+
+                # Get the min gap between close classes
+                _gap = 15 - (((t1, t2)[earlier_indx] & 0x7c00000)  >> 22 ) + (((t1, t2)[earlier_indx ^ 1] & 0x7c000000)  >> 27 )
+
+                return _gap/100
 
 def testing_bt_conv():
     """ Testing Function
@@ -277,9 +326,25 @@ def testing_bt_conv():
         else:
             print('Quitting Testing...\n\n')
 
+def testing_bt_cmp():
+    """ Testing Function
 
+        Allows you to test the functionality of the BitTimeConv Class's compare function
+
+    """
+    
+    b = BitTimeConv();
+    
+    t1, t2 = input('Bitwise Time 1: '), input('Bitwise Time 2: ')
+    
+    print( b.compare(int(t1),int(t2)) )
+    
+
+    
 if __name__ == '__main__':
 
     testing_bt_conv()
+    
+    testing_bt_cmp()    
     
     input('Press <enter> to continue...')
