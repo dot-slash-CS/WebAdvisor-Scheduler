@@ -38,7 +38,7 @@ class MeetingWrapper:
 
     # allowance is the number of seconds that two classes can overlap and not return true
     # returns true if other_meeting overlaps with this one, false otherwise
-    def overlap(self, other_meeting, allowance=0):
+    def overlaps_with(self, other_meeting, allowance=0):
         if self.day == other_meeting.day:
             earlier = min(meeting1, meeting2, key=lambda m: m.startTime)
             later   = max(meeting1, meeting2, key=lambda m: m.startTime)
@@ -59,8 +59,17 @@ def split_meeting(meeting):
 
 # Returns a list of pairs of meetings that overlap
 def overlapped_meeting_times(section1, section2):
-    # TODO
-    pass
+    overlap = []
+    section_one_meetings = map(section1.meetings, lambda m: split_meeting(m))
+    section_two_meetings = map(section2.meetings, lambda m: split_meeting(m))
+
+    for meeting1 in section_one_meetings:
+        for meeting2 in section_two_meetings:
+            if meeting1.overlaps_with(meeting2):
+                overlap.append(meeting1, meeting2)
+
+    return overlap
+
 
 # Takes a list of pairs of meeting objects whose times overlap
 #
