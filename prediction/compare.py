@@ -6,17 +6,45 @@ import datetime
 
 # Only for use in compare module
 class MeetingWrapper:
-    """Wraps a meeting object and adds a 'day' field"""
+    """
+    Wraps a meeting object (LogicComm's version) changes the following:
+    - Adds a 'day' instance attribute
+    - Removes 'recurrence' instance attribute (still accessible through 'raw')
+    - Converts startTime and endTime from datetime.time to datetime.timedelta
+    """
     def __init__(self, meeting, day):
-        self.meeting       = meeting # the raw meeting object to be wrapped
+        self.raw           = meeting # the raw meeting object to be wrapped
         self.day           = day     # the day of the week the meeting is on
         self.meetingType   = meeting.meetingType
         self.campus        = meeting.campus
-        self.startTime     = meeting.startTime
-        self.endTime       = meeting.endTime
         self.professorName = meeting.professorName
         self.room          = meeting.room
-        self.recurrence    = meeting.recurrence
+
+        self.startTime = datetime.timedelta(
+            hours   = meeting.startTime.hour,
+            minutes = meeting.startTime.minute,
+            seconds = meeting.startTime.second
+        )
+
+        self.endTime = datetime.timedelta(
+            hours   = meeting.endTime.hour,
+            minutes = meeting.endTime.minute,
+            seconds = meeting.endTime.second
+        )
+
+    # returns the duration of class meeting in seconds
+    def duration(self):
+        return (end - start).total_seconds()
+
+    # allowance is the number of seconds that two classes can overlap and not return true
+    # returns true if other_meeting overlaps with this one, false otherwise
+    def overlap(self, other_meeting, allowance=0):
+        if self.day == other_meeting.day:
+            earlier = min(meeting1, meeting2, key=lambda m: m.startTime)
+            later   = max(meeting1, meeting2, key=lambda m: m.startTime)
+            return (later.startTime - earlier.endTime).total_seconds() <= -allowance
+        return False
+
 
 # Takes a meeting object (LogicComm's version) as a parameter
 #
@@ -29,7 +57,7 @@ def split_meeting(meeting):
         meetings_wrapped.append(MeetingWrapper(meeting, day_of_week))
     return meetings_wrapped
 
-# Returns list of pairs of meetings that overlap
+# Returns a list of pairs of meetings that overlap
 def overlapped_meeting_times(section1, section2):
     # TODO
     pass
