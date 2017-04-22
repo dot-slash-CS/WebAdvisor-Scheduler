@@ -1,33 +1,38 @@
 import datetime
 
-#################
-#The documentation in war_strategy.txt says we're using compare vs check
-#But its chill so long as you push the change to the war_strategy
-#with the exception that the final container function is named compare
-#Because that is an interface which is used outside of this module
-#################
-
 ##########################
 # CONTAINER FUNCTION
 ##########################
 
+# Takes a meeting object (LogicComm's version) as a parameter
+# Returns a list of meeting objects that represent the one meeting parameter
+# except split into different days of the week based on meeting.recurrence
+def split_meeting(meeting):
+    pass
+
+# Returns list of pairs of meetings that overlap
+def overlapped_meeting_times(section1, section2):
+    # TODO
+    pass
+
+# Takes a list of pairs of meeting objects whose times overlap
+# Returns true if ALL meetings that are overlapping can be resolved based on
+# location and duration of overlap
+def can_be_resolved(omts):
+    # TODO
+    pass
         
-def compare( section_list , section ):
+def compare(section_list, section):
     # success_lis good iffy and bad status
     # status the status to append to suces_list
     success_list = [] 
-    status 
+    status = 0
 
-    # for i_section in setion_list :
-
-    if success_list.count( 2 ) > 0 :
-        status = 2
-    elif success_list.count( 1 ) > 0 :
-        status = 1
-    else :
-        status = 0 
+    for sec in section_list:
+        omts = overlapped_meeting_times(sec, section)
+        if omts: # if there are overlapped meeting times
+            status = 1 if can_be_resolved(omts) else 2
+            if status == 2:
+                return status
 
     return status 
-	
-	
-
