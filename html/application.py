@@ -4,7 +4,7 @@ import tempHTML
 
 application = Flask(__name__)
 mysql = MySQL()
-application.config['MYSQL_DATABASE_DB'] = "Schedules"
+application.config['MYSQL_DATABASE_DB'] = "Schedulep"
 application.config['MYSQL_DATABASE_HOST'] = "localhost"
 application.config['MYSQL_DATABASE_USER'] = "root"
 application.config['MYSQL_DATABASE_PASSWORD'] = "password"
