@@ -47,7 +47,7 @@ def tempHTML(option, db_id, notes):
       </a>
 	</div>
 '''
-	main_html_bot = '''</body>
+	main_html_bot = '''
 </html>'''
 	variable = ''''''
 	if option == "calendar":
@@ -412,6 +412,9 @@ def tempHTML(option, db_id, notes):
         </div>
       </div>
     </div>
+    </body>
+    <script src="../static/assets/js/jquery-3.2.1.js"></script>
+	<script src="../static/assets/js/script.js"></script>
 '''
 	elif option == "home":
 		variable = '''
@@ -445,7 +448,7 @@ def tempHTML(option, db_id, notes):
   			variable += dropdown
   		variable += '''
 	   		</table><br>
-  				<input type="submit" value="Generate"/></center></form>'''
+  				<input type="submit" value="Generate"/></center></form></body>'''
 	#f_variable = variable.format(**locals())
 	html = main_html_top + variable + main_html_bot
 	return html
