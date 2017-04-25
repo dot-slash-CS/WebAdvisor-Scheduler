@@ -4,7 +4,7 @@ The purpose of this program is to create a dynamic html file in the static folde
 The html file changes depending on what options you pass through parameters
 '''
 
-import os
+import os, getDept
 
 # the main call function (what you would call from other programs)
 # calls tempHTML()
@@ -417,111 +417,35 @@ def tempHTML(option, db_id, notes):
 		variable = '''
 		<form action="/calendar" method="post"><center><font size="4"><b>
     <br>Welcome to Dot Slash Computer Science Schedule Builder</b></font><br><font size="4"><b>
-    for Ohlone College</b></font><br><br><select name="Semester">
-			<option selected="selection"></option>
-			<option>Summer 2017 - Placeholder</option>
-			<option>Fall 2017 - Placeholder</option>
-    </select><br><br>
-<table style="text-align:center">
-  <tr>
-    <th><div class="text-center">Department</div></th>
-    <th><div class="text-center">Course Number</div></th> 
-  </tr>
-  <tr>
-    <td>		<select name="Department - 1">
-			<option selected="Chosen Department - 1"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr>  <tr>
-    <td>		<select name="Department - 2">
-			<option selected="Chosen Department - 2"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr> 
-    <tr>
-    <td>		<select name="Department - 3">
-			<option selected="Chosen Department - 3"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr>  <tr>
-    <td>		<select name="Department - 4">
-			<option selected="Chosen Department - 4"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr>  <tr>
-    <td>		<select name="Department - 5">
-			<option selected="Chosen Department - 5"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr>  <tr>
-    <td>		<select name="Department - 6">
-			<option selected="Chosen Department - 6"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr>  <tr>
-    <td>		<select name="Department - 7">
-			<option selected="Chosen Department - 7"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr>  <tr>
-    <td>		<select name="Department - 8">
-			<option selected="Chosen Department - 8"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr>  <tr>
-    <td>		<select name="Department - 9">
-			<option selected="Chosen Department - 9"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr>  <tr>
-    <td>		<select name="Department - 10">
-			<option selected="Chosen Department - 10"></option>
-			<option>Department 1 - Placeholder</option>
-			<option>Department 2 - Placeholder</option>
-		</select></td>
-    <td>
-<input type="text" name="Course Number">
-</td>
-  </tr>
-</table><br>
-  <input type="submit" value="Generate"></center><br></form>'''
-
+    for Ohlone College</b></font><br><br>
+    <select name="Semester">'''
+   		termsDepts = getDept.gatherFields()
+   		termsSorted = list(termsDepts.terms)
+   		deptsSorted = list(termsDepts.dept)
+   		termsSorted.sort()
+   		deptsSorted.sort()
+   		termField = ''''''
+   		for term in termsSorted:
+   			option = '<option value="'+str(term)+'">'+termsDepts.terms[term]+'</option>'
+   			termField += option
+   		termField += '</select><br><br>'
+   		variable += termField
+   		variable += '''
+   		<table style="text-align:center">
+			<tr>
+   				<th><div class="text-center">Department</div></th>
+    			<th><div class="text-center">Course Number</div></th> 
+  			</tr>'''
+   		for fieldNum in xrange(8):
+   			dropdown = '''<tr><td><select name="Department'''+str(fieldNum)+'''">'''
+   			for dept in deptsSorted:
+	   			option = '<option value="'+str(dept)+'">'+termsDepts.dept[dept]+'</option>'
+	   			dropdown += option
+	   		dropdown += '''</select></td><td><input type="text" name="CourseNum'''+str(fieldNum)+'''"></td></tr>'''
+  			variable += dropdown
+  		variable += '''
+	   		</table><br>
+  				<input type="submit" value="Generate"/></center></form>'''
 	#f_variable = variable.format(**locals())
 	html = main_html_top + variable + main_html_bot
 	return html
