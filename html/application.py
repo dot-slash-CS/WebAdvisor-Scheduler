@@ -1,10 +1,10 @@
 from flask import Flask, request
 from flaskext.mysql import MySQL
-import createHTML
+import createHTML,testcase,addEntry
 
 application = Flask(__name__)
 mysql = MySQL()
-application.config['MYSQL_DATABASE_DB'] = "Schedulep"
+application.config['MYSQL_DATABASE_DB'] = "Schedule"
 application.config['MYSQL_DATABASE_HOST'] = "localhost"
 application.config['MYSQL_DATABASE_USER'] = "root"
 application.config['MYSQL_DATABASE_PASSWORD'] = "password"
@@ -19,8 +19,10 @@ def index():
 #this is the route that will be called when the "Get Schedules" button is clicked
 @application.route("/calendar", methods=["post"])
 def calendar():
-	createHTML.createCalendar()
-	return application.send_static_file("calendar.html")
+    tempTest = testcase.testcase
+    addEntry.addEntry(tempTest,mysql)
+    createHTML.createCalendar(len(tempTest))
+    return application.send_static_file("calendar.html")
 
 
 # run the application.

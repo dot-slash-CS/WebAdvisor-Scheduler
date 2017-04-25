@@ -39,7 +39,7 @@ def createHome():
     with open('static/home.html', mode='wt') as file:
         file.write(str(soup))
 
-def createCalendar(db=None,db_id=None):
+def createCalendar(count,db_id=None):
     soup = BeautifulSoup(open('templates/calendar.html'),'html.parser')
     soup.prettify()
     with open('static/calendar.html',mode='wt') as file:
