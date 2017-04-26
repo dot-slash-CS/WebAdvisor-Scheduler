@@ -1,76 +1,106 @@
+.row {
+  margin: auto;
+  min-width: 935px;
+}
+
 .schedule{
-	min-width:520px;
+    min-width:520px;
 }
 
 .times-container{
-	height: 700px;
-	width: 60px;
-	float:left;
+    height: 700px;
+    width: 60px;
+    margin-left: 15px;
+    float:left;
 }
 
-.calendar-container{
-	height: 700px;
-	width: 90%;
-	display: inline-block;
+.grid-outer{
+  position:absolute;
+  width:90%;
+  height: 700px;
+  display:inline-block;
 }
 
 .grid-container{
-	width:100%;
-	height: 100%;
+    position: relative;
+    width:90%;
+    height: 700px;
+    display: inline-block;
+  }
+
+.events-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
 }
 
+.events-grid {
+  width: 100%;
+  height: 100%;
+  border-collapse: none;
+}
 table.calendarbody {
-	border-collapse: collapse;
-	width: 100%;
-	height: 100%;
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
 }
 
 table.calendartimes {
-	border-collapse: collapse;
-	float: left;
-	width: 100%;
-	height: 100%;
+    border-collapse: collapse;
+    float: left;
+    width: 100%;
+    height: 100%;
 }
 
 th.scbldr {
-	font-family: Helvetica;
-	font-size: 12px;
-	color: black;
-	background-color: rgba(0,255,100,.2);
+    font-family: Helvetica;
+    font-size: 12px;
+    color: black;
+    background-color: rgba(0,255,100,.2);
 }
 
 tr.scbldr, tr.scbldr-head{
-	height: 20px;
+    height: 20px;
 }
 
 tr.times {
-	height: 20px;
+    height: 20px;
 }
 
 tr.scbldr-head {
-	border: 1px solid grey;
-	width: 16.77777%;
+    border: 1px solid grey;
+    width: 16.6666666%;
 }
 
 tr.scbldr.even {
-	border: 1px solid grey;
-	border-bottom: 1px dotted grey;
+    border: 1px solid grey;
+    border-bottom: 1px dotted grey;
 }
 
 tr.scbldr.odd {
-	border: 1px solid grey;
-	border-top: 1px dotted grey;
+    border: 1px solid grey;
+    border-top: 1px dotted grey;
 }
 
 td.scbldr, th.scbldr{
-	border-left: 1px solid grey;
-	border-right: 1px solid grey;
-	width: 16.777777%;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    width: 16.6666667%;
 }
 
 td.times, th.times {
-	width: 50px;
-	font-size: 12px;
+    width: 50px;
+    font-size: 12px;
+}
+
+td.ev {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 16.6666666%;
+  height: 100%;
 }
 
 .header {
@@ -86,7 +116,42 @@ td.times, th.times {
   padding-top: 8px;
 }
 
-.row {
-  margin: 0 auto;
-  max-width: 80%;
+.event {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  height: 30px;
+  width: 16.66666666%;
+  border-radius: 0.75em;
+}
+
+
+.event.ev1 {
+  background-color: rgb(255,239,175);
+  border: 1px solid rgb(252,215,125);
+}
+
+.event.ev2 {
+  background-color: rgb(148,214,255);
+  border: 1px solid rgb(74,173,205);
+}
+
+.event.ev3 {
+  background-color: rgb(255,148,148);
+  border: 1px solid rgb(156,72,72);
+}
+
+.event.ev4 {
+  background-color: rgb(199,255,150);
+  border: 1px solid rgb(133,199,123);
+}
+
+.event.ev5 {
+  background-color: rgb(255,200,138);
+  border: 1px solid rgb(204,146,80);
+}
+
+.event.ev6 {
+  background-color: rgb(171,136,189);
+  border: 1px solid rgb(102,82,112);
 }
