@@ -42,5 +42,10 @@ def createHome():
 def createCalendar(count,db_id=None):
     soup = BeautifulSoup(open('templates/calendar.html'),'html.parser')
     soup.prettify()
+    text= '<select name="schedules" id="schedulesDrop">"'
+    for i in xrange(count):
+        text += '<option value="'+str(i)+'">'+str(i+1)+'</option><br>'
+    text += '</select>'
+    soup.find(id="scheduleList").append(BeautifulSoup(text,'html.parser'))
     with open('static/calendar.html',mode='wt') as file:
         file.write(str(soup))

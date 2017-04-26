@@ -15,6 +15,7 @@
 <link href="../static/assets/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 <link href="../static/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="../static/assets/css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 </link></link></link></link></head>
 <body>
 <div class="header">
@@ -376,17 +377,34 @@
 </div>
 </div>
 <div class="col-xs-6 col-sm-4 col-lg-2">
-<div class="rightSchedule">
+<div class="rightSchedule" id="scheduleList">
 <p class="text-center">Your Schedule</p>
-<input name="schedules" type="radio" value="1"/>
-<input name="schedules" type="radio" value="1"/>
-<input name="schedules" type="radio" value="1"/>
-<input name="schedules" type="radio" value="1"/>
-</div>
+<select id="schedulesDrop" name="schedules">"<option value="0">1</option><br><option value="1">2</option><br/></br></select></div>
 </div>
 </div>
 </body></html>
 
+<script>
+		$(document).ready(function(){
+			$('select#schedulesDrop').change(function() {
+				$.ajax({
+					url : '/selectSchedule',
+					method : "GET",
+					data : {
+						i : 26,
+						s : $('select#schedulesDrop').val()
+					},
+					success : function(data){
+						schedule = data;
+						console.log("success");
+					},
+					error : function(){
+						console.log("fail!")
+					}
+				});
+			});
+		});
+	</script>
 <!--
 	<script src="static/assets/js/jquery-3.2.1.js"></script>
 	<script src="static/assets/js/script.js"></script>
