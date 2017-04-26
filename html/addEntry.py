@@ -35,9 +35,9 @@ class Meeting:
 def convertDict(schedules):
     scheduleDict = {} #initializes scheduleDict as a dictionary 
     scheduleDict['schedules'] = {}
-    for s in xrange(len(schedules)): #for every schedule in the list of schedules (from the parameter) we want to create an entry in the schedules dictionary
+    for s in range(len(schedules)): #for every schedule in the list of schedules (from the parameter) we want to create an entry in the schedules dictionary
         scheduleDict['schedules']['S'+str(s)]={} #initializes the first schedule with it's index starting at 0 (it will be called "S0")
-        for c in xrange(len(schedules[s])): #for every course in the s'th schedule
+        for c in range(len(schedules[s])): #for every course in the s'th schedule
             scheduleDict['schedules']['S'+str(s)]['C'+str(c)]={
                 'credits' : schedules[s][c].credits,
                 'subject' : schedules[s][c].subject,
@@ -51,7 +51,7 @@ def convertDict(schedules):
                 'section_number': schedules[s][c].sections[0].section_number,
                 'meetings': {}
             }
-            for m in xrange(len(schedules[s][c].sections[0].meetings)):
+            for m in range(len(schedules[s][c].sections[0].meetings)):
                 scheduleDict['schedules']['S'+str(s)]['C'+str(c)]['section']['meetings']['M'+str(m)]= {
                     'meetingType' : schedules[s][c].sections[0].meetings[m].meetingType,
                     'campus' : schedules[s][c].sections[0].meetings[m].campus,
@@ -61,7 +61,7 @@ def convertDict(schedules):
                     'room' : schedules[s][c].sections[0].meetings[m].room,
                     'recurrence' : {}
                 }
-                for r in xrange(len(schedules[s][c].sections[0].meetings[m].recurrence)):
+                for r in range(len(schedules[s][c].sections[0].meetings[m].recurrence)):
                     scheduleDict['schedules']['S'+str(s)]['C'+str(c)]['section']['meetings']['M'+str(m)]['recurrence']['R'+str(r)]= schedules[s][c].sections[0].meetings[m].recurrence[r]
     return json.dumps(scheduleDict)
 

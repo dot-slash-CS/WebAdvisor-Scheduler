@@ -439,7 +439,7 @@ def tempHTML(option, db_id, notes):
    				<th><div class="text-center">Department</div></th>
     			<th><div class="text-center">Course Number</div></th> 
   			</tr>'''
-   		for fieldNum in xrange(8):
+   		for fieldNum in range(8):
    			dropdown = '''<tr><td><select name="Department'''+str(fieldNum)+'''">'''
    			for dept in deptsSorted:
 	   			option = '<option value="'+str(dept)+'">'+termsDepts.dept[dept]+'</option>'

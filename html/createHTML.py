@@ -24,7 +24,7 @@ def createHome():
             <th><div class="text-center">Department</div></th>
             <th><div class="text-center">Course Number</div></th> 
         </tr>'''
-    for fieldNum in xrange(8):
+    for fieldNum in range(8):
         dropdown = '<tr><td><select name="Department'+str(fieldNum)+'">'
         for dept in deptsSorted:
             option = '<option value="'+str(dept)+'">'+termsDepts.dept[dept]+'</option>'
@@ -43,7 +43,7 @@ def createCalendar(count,db_id=None):
     soup = BeautifulSoup(open('templates/calendar.html'),'html.parser')
     soup.prettify()
     text= '<select name="schedules" id="schedulesDrop">"'
-    for i in xrange(count):
+    for i in range(count):
         text += '<option value="'+str(i)+'">'+str(i+1)+'</option><br>'
     text += '</select>'
     soup.find(id="scheduleList").append(BeautifulSoup(text,'html.parser'))
