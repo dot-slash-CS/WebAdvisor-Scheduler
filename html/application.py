@@ -1,6 +1,7 @@
 from flask import Flask, request
+import flask
 from flaskext.mysql import MySQL
-import createHTML,testcase,addEntry
+import createHTML,testcase,addEntry,getSchedule
 
 application = Flask(__name__)
 mysql = MySQL()
@@ -24,6 +25,11 @@ def calendar():
     createHTML.createCalendar(len(tempTest))
     return application.send_static_file("calendar.html")
 
+@application.route("/selectSchedule", methods=["get"])
+def selectSchedule():
+    index = request.args.get('i')
+    schedule = request.args.get('s')
+    return getSchedule.convertToJSON(schedule, index, mysql)
 
 # run the application.
 if __name__ == "__main__":
