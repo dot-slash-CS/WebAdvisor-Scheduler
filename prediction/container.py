@@ -2,7 +2,7 @@
 """
 Created on Fri Apr  7 18:02:49 2017
 
-@author: ctoou
+@author: ctoou <---- Romeo 
 """
 
 def schedule_generator( course_list ):
@@ -25,7 +25,6 @@ def schedule_generator( course_list ):
         schedule_iterator(i_section, sorted_course_list[1:], schedule_list, iffy_list)
     
     schedule_course_list = []
-    schedule_course_list.append
     
     for num in range(len(schedule_list)):
         schedule_course_list.append(schedule_list[num], sorted_course_list[num].credits, \
@@ -38,7 +37,7 @@ def schedule_generator( course_list ):
             sorted_course_list[num].title, sorted_course_list[num].desc)
         
     
-    return schedule_list
+    return schedule_course_list
     
 
 
