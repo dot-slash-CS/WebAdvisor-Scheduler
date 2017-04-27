@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-
+from prediction/compare import compare
 #schedule_iterator.py
 #Recurssively iterates through a list of courses (a list of sections)
 #to concatenate a list of courses with a single section
