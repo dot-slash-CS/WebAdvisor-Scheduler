@@ -369,23 +369,23 @@
 						<div class="events-container">
 							<table class="events-grid">
 								<tr class="events-row">
-									<td id="ev mon">
-										<div class="event ev1" id="event1" style="height:90px; top:400px"></div>
+									<td class="ev mon" id="evmon">
+										 <div class="event ev1" id="event1" style="height:90px; top:400px"></div>
 									</td>
-									<td id="ev tue">
+									<td class="ev tue" id="evtue">
 										<div class="event ev2" id="event2" style="height:142px; top:200px"></div>
 									</td>
-									<td id="ev wed">
-										<div class="event ev3" id="event3" style="height:100px; top:174.6px"></div>
+									<td class="ev wed" id="evwed">
+										<!-- <div class="event ev3" id="event3" style="height:100px; top:174.6px"></div> -->
 									</td>
-									<td id="ev thu">
-										<div class="event ev4" id="event4" style="height:121.12px; top:60px"></div>
+									<td class="ev thu" id="evthu">
+										<!-- <div class="event ev4" id="event4" style="height:121.12px; top:60px"></div> -->
 									</td>
-									<td id="ev fri">
-										<div class="event ev5" id="event5" style="height:200px; top:24px"></div>
+									<td class="ev fri" id="evfri">
+										<!-- <div class="event ev5" id="event5" style="height:200px; top:24px"></div> -->
 									</td>
-									<td id="ev sat">
-										<div class="event ev6" id="event6" style="height:97px; top:89px"></div>
+									<td class="ev sat" id="evsat">
+										<!-- <div class="event ev6" id="event6" style="height:97px; top:89px"></div> -->
 									</td>
 								</tr>
 							</table>
@@ -401,33 +401,96 @@
 			</div>
 		</div>
 	</div>
-	<script>
-	       $(document).ready(function(){
-	           $('select#schedulesDrop').change(function() {
-	               $.ajax({
-	                   url : '/selectSchedule',
-	                   method : "GET",
-	                   data : {
-	                       i : 26,
-	                       s : $('select#schedulesDrop').val()
-	                   },
-	                   success : function(data){
-	                       schedule = data;
-	                       console.log("success");
-	                   },
-	                   error : function(){
-	                       console.log("fail!")
-	                   }
-	               });
-	           });
-	       });
-	</script> <!--
+<!--
     <script src="static/assets/js/jquery-3.2.1.js"></script>
     <script src="static/assets/js/script.js"></script>
 		-->
-		<script src="../static/assets/js/jquery-3.2.1.js"></script><!--
+		<script src="../static/assets/js/jquery-3.2.1.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script><!--
     <script src="../static/assets/js/script.js"></script>
   -->
+	<script>
+    var schedule
+		$(document).ready(function(){
+      $('select#schedulesDrop').change(function() {
+        $.ajax({
+          url : '/selectSchedule',
+          method : "GET",
+          data : {
+            i : 26,
+            s : $('select#schedulesDrop').val()
+          },
+          success : function(data){
+            //This is the code that generates the the div events on the calendar
+            schedule = JSON.parse(data); //JSON string
+            populateCalendar(schedule);
+            console.log("success");
+          },
+          error : function(){
+            console.log("fail!")
+          }
+        });
+      });
+	  });
+    $.ajax({
+            url : '/selectSchedule',
+            method : "GET",
+            data : {
+              i : 26,
+              s : $('select#schedulesDrop').val()
+            },
+            success : function(data){
+              //This is the code that generates the the div events on the calendar
+              schedule = JSON.parse(data); //JSON string
+              populateCalendar(schedule);
+              console.log("success");
+            },
+            error : function(){
+              console.log("fail!")
+            }
+          });
+    function populateCalendar(schedule){
+      var days = {Monday:"evmon", Tuesday:"evtue", Wednesday:"evwed", Thursday:"evthu", Friday:"evfri", Saturday:"evsat"};
+      for (day in days) {
+        eventCol = document.getElementById(days[day]);
+        while (eventCol.hasChildNodes()){
+          eventCol.removeChild(eventCol.childNodes[0]);
+        }
+      }
+      i = 1;
+      for (course in schedule) {
+        for (meeting in schedule[course]["section"]["meetings"]) {
+          var div = '<div class="event ev'+String(i)+'" id="event'+String(i)+'"style="height:'+String(calculateDuration(schedule[course]["section"]["meetings"][meeting]['startTime'],schedule[course]["section"]["meetings"][meeting]['endTime']))+'px; top:'+String(calculateStart(schedule[course]["section"]["meetings"][meeting]['startTime'])-220)+'px"></div>'
+          for (recurr in schedule[course]["section"]["meetings"][meeting]["recurrence"]){
+            console.log(days[schedule[course]["section"]["meetings"][meeting]["recurrence"][recurr]]);
+            $('#'+days[schedule[course]["section"]["meetings"][meeting]["recurrence"][recurr]]).append(div)
+          }
+        }
+      i++;
+      }
+    }
 
+    function calculateDuration(starttime,endtime){
+      var conversion = 40;
+      var startStr = starttime.split(":");
+      var endStr = endtime.split(":");
+      var duration = [0,0];
+      duration[1] = parseInt(endStr[1])-parseInt(startStr[1])
+      if (duration[1]<0){
+        duration[1]+=60;
+        duration[0]--;
+      }
+      duration[0] += parseInt(endStr[0])-parseInt(startStr[0]);
+      return (duration[0]*conversion+(duration[1]/60)*conversion);
+    }
+
+    function calculateStart(starttime){
+      conversion = 40;
+      var startStr = starttime.split(":");
+      start = [parseInt(startStr[0]),parseInt(startStr[1])]
+      return (start[0]*conversion+(start[1]/60)*conversion);
+    }
+
+	</script> 
 </body>
 </html>

@@ -41,14 +41,14 @@
   height: 100%;
   border-collapse: none;
 }
-table.calendarbody {
-    border-collapse: collapse;
+.calendarbody {
+    border-collapse: none;
     width: 100%;
     height: 100%;
 }
 
-table.calendartimes {
-    border-collapse: collapse;
+.calendartimes {
+    border-collapse: none;
     float: left;
     width: 100%;
     height: 100%;
@@ -66,7 +66,7 @@ tr.scbldr, tr.scbldr-head{
 }
 
 tr.times {
-    height: 20px;
+    height: 40px;
 }
 
 tr.scbldr-head {
@@ -96,7 +96,6 @@ td.times, th.times {
 }
 
 td.ev {
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
   width: 16.6666666%;
@@ -116,7 +115,7 @@ td.ev {
   padding-top: 8px;
 }
 
-.event {
+div.event {
   display: inline-block;
   position: absolute;
   top: 0px;
@@ -126,32 +125,32 @@ td.ev {
 }
 
 
-.event.ev1 {
+div.event.ev1 {
   background-color: rgb(255,239,175);
   border: 1px solid rgb(252,215,125);
 }
 
-.event.ev2 {
+div.event.ev2 {
   background-color: rgb(148,214,255);
   border: 1px solid rgb(74,173,205);
 }
 
-.event.ev3 {
+div.event.ev3 {
   background-color: rgb(255,148,148);
   border: 1px solid rgb(156,72,72);
 }
 
-.event.ev4 {
+div.event.ev4 {
   background-color: rgb(199,255,150);
   border: 1px solid rgb(133,199,123);
 }
 
-.event.ev5 {
+div.event.ev5 {
   background-color: rgb(255,200,138);
   border: 1px solid rgb(204,146,80);
 }
 
-.event.ev6 {
+div.event.ev6 {
   background-color: rgb(171,136,189);
   border: 1px solid rgb(102,82,112);
 }
