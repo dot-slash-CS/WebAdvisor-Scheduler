@@ -1,14 +1,10 @@
 import os, getDept
 from bs4 import BeautifulSoup
 
-def createHome(notes=None):
+def createHome():
     soup = BeautifulSoup(open('templates/home.html'),'html.parser')
     soup.prettify()
-    try:
-        generated = '''<p style="color:red">'''+notes['error']+'''</p>'''
-    except:
-        generated = ''''''
-    generated += '''
+    generated = '''
         <form action="/calendar" method="post">
         <select name="Semester">'''
     termsDepts = getDept.gatherFields()
@@ -27,15 +23,13 @@ def createHome(notes=None):
         <tr>
             <th><div class="text-center">Department</div></th>
             <th><div class="text-center">Course Number</div></th> 
-            <th><div class="text-center">Section Number (optional)</div></th>
         </tr>'''
     for fieldNum in range(8):
         dropdown = '<tr><td><select name="Department'+str(fieldNum)+'">'
         for dept in deptsSorted:
             option = '<option value="'+str(dept)+'">'+termsDepts.dept[dept]+'</option>'
             dropdown += option
-        dropdown += '</select></td><td><input type="text" name="CourseNum'+str(fieldNum)+'"></td>'
-        dropdown += '<td><input type="text" name="SectionNum'+str(fieldNum)+'"></td></tr>'
+        dropdown += '</select></td><td><input type="text" name="CourseNum'+str(fieldNum)+'"></td></tr>'
         generated += dropdown
     generated += '''
         </table><br>

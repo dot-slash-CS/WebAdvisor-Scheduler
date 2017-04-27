@@ -21,28 +21,6 @@ def index():
 #this is the route that will be called when the "Get Schedules" button is clicked
 @application.route("/calendar", methods=["post"])
 def calendar():
-    term = request.form['Semester']
-    if term == "":
-        createHTML.createHome({'error':"Error: You must choose a Semester Term"})
-        return application.send_static_file("home.html")
-    listCourses = list()
-    for i in range(8):
-        dept = request.form['Department'+str(i)]
-        try:
-            course = request.form['CourseNum'+str(i)]
-        except:
-            course = ""
-        try:
-            section = request.form['SectionNum'+str(i)]
-        except:
-            section = ""
-        if dept!="":
-            listCourses.append([{'term':term,'subject':dept,'course_number':course,'section':section}])
-    if len(listCourses)==0:
-        createHTML.createHome({'error':"Error: You must choose at least one course."})
-        return application.send_static_file("home.html")
-    print (listCourses)# Pass listCourse to parsing function
-    # Pass parsed information to Prediction algorithm
     tempTest = testcase.testcase #this is merely a test case of a lists of schedules with lists of courses
     addEntry.addEntry(tempTest,mysql)
     createHTML.createCalendar(len(tempTest))
