@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<htmL>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<body>
+<input type="button" value="SUBMIT" id="submit"/>
+</body>
+<script>
+var schedule
+$("#submit").click(function(){
+  $.ajax({
+    url : '/selectSchedule', 
+    method : "GET",
+    data : {
+      i : 26,
+      s : 0
+    },
+    success : function(data){
+      schedule = data;
+      console.log("success");
+    }
+  });
+});
+</script>
+</htmL>
