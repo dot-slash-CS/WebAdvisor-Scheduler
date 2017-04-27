@@ -1,5 +1,4 @@
-import os
-from HTML import getDept
+import os, getDept
 from bs4 import BeautifulSoup
 
 def createHome(notes=None):
