@@ -32,7 +32,8 @@ def convertOptions(options):
 
 
 def gatherFields():
-	browser = webdriver.Chrome()
+	#browser = webdriver.Chrome() #Use ChromeDriver
+	browser = webdriver.PhantomJS('phantomjs') #Use PhantomJS - GhostDriver
 	browser.implicitly_wait(5)
 	browser.get('https://webadvisor.ohlone.edu')
 	browser.find_element_by_link_text("Students").click()

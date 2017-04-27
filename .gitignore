@@ -1,2 +1,3 @@
 *.pyc
 __pycahche__
+*.log

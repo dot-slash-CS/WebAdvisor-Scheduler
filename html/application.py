@@ -15,12 +15,13 @@ mysql.init_app(application)
 # this is the first route that will be called when the website is accessed
 @application.route("/")
 def index():
-	return application.send_static_file("home.html")
+    createHTML.createHome()
+    return application.send_static_file("home.html")
 
 #this is the route that will be called when the "Get Schedules" button is clicked
 @application.route("/calendar", methods=["post"])
 def calendar():
-    tempTest = testcase.testcase
+    tempTest = testcase.testcase #this is merely a test case of a lists of schedules with lists of courses
     addEntry.addEntry(tempTest,mysql)
     createHTML.createCalendar(len(tempTest))
     return application.send_static_file("calendar.html")
@@ -36,5 +37,5 @@ if __name__ == "__main__":
 	# Setting debug to True enables debug output. This line should be
 	# removed before deploying a production application.
 	application.debug = True
-	createHTML.createHome()
+	
 	application.run()

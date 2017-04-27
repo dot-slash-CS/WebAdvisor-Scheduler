@@ -38,6 +38,7 @@ def createHome():
     soup.center.append(generated)
     with open('static/home.html', mode='wt') as file:
         file.write(str(soup))
+    print ("home.html created...")
 
 def createCalendar(count,db_id=None):
     soup = BeautifulSoup(open('templates/calendar.html'),'html.parser')
@@ -49,3 +50,4 @@ def createCalendar(count,db_id=None):
     soup.find(id="scheduleList").append(BeautifulSoup(text,'html.parser'))
     with open('static/calendar.html',mode='wt') as file:
         file.write(str(soup))
+    print ("calendar.html created")
