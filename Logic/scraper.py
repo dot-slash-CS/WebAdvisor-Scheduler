@@ -19,6 +19,7 @@ def scrape_courses(debug=False, **params):
     if debug:
         driver = webdriver.Chrome(os.path.join(os.path.abspath(os.path.dirname(__file__)), "chromedriver"))
     else:
+        # TODO Replace with Chrome headless
         driver = webdriver.PhantomJS(os.path.join(os.path.abspath(os.path.dirname(__file__)), "phantomjs"))
         driver.set_window_size(1280, 1024)
 
@@ -73,6 +74,7 @@ def scrape_courses(debug=False, **params):
             # driver.set_window_size(1280, 1024)
             # Read data from tab
 
+            # Checks to see if valid data was received
             try:
                 driver.find_element_by_name('CLOSE WINDOW2')
                 courses.append(driver.page_source)
