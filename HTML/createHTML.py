@@ -1,4 +1,5 @@
-import os, getDept
+import os
+from HTML import getDept
 from bs4 import BeautifulSoup
 
 def createHome():
