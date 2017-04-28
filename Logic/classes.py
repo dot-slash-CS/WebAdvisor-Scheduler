@@ -6,6 +6,20 @@ subject_regex = re.compile(r'^\w+')
 course_number_regex = re.compile(r'-(\w+)-')
 section_number_regex = re.compile(r'\w+$')
 
+dates_regex = re.compile(r'^(\d{2}/\d{2}/\d{4})-(\d{2}/\d{2}/\d{4}) ')
+room_regex = re.compile(r', Room (.+)$')
+type_regex = re.compile(r'^(.+?) (?=Days|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)')
+recurrence_regex = re.compile(r'^((Days TBA|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)(?:, )?)+(?: )?')
+
+days = {'Monday': 'mon',
+        'Tuesday': 'tues',
+        'Wednesday': 'wed',
+        'Thursday': 'thur',
+        'Friday': 'fri',
+        'Saturday': 'sat',
+        'Sunday': 'sun',
+        'Days TBA': ''}
+
 
 class Course:
     def __init__(self, page_list):
@@ -71,20 +85,53 @@ class Section:
 
 def parse_meeting_string(meeting_string):
     # Parse string into dictionary using regex
+    meeting_strings = meeting_string.splitlines()
+    meetings = []
+    for s in meeting_strings:
+        values = dict()
+        dates = dates_regex.search(s)
+        values['start_date'] = dates.group(1)
+        values['end_date'] = dates.group(2)
+        s = dates_regex.sub('', s)
+        values['room'] = room_regex.search(s).group(1)
+        s = room_regex.sub('', s)
+        # TODO Recheck meeting_type and recurrence
+
+        values['meeting_type'] = type_regex.search(s).group(1)
+        s = type_regex.sub('', s)
+        recurrence_string = recurrence_regex.search(s).group(0).strip(', ')
+        recurrences = recurrence_string.split(', ')
+        for day in recurrences:
+            day
+
+        s = recurrence_regex.sub('', s)
+        s.replace('TBA', 'TBA, ')
+
+        time_string, values['location'] = s.split(', ')
+        start_time, end_time = time_string.split(' - ')
+
+        values['start_time'] = datetime.datetime.strptime(start_time, '%I:%M%p').time()
+        values['end_time'] = datetime.datetime.strptime(end_time, '%I:%M%p').time()
+
+
+
 
     # Create Meeting object from dictionary
 
     # return list of Meeting objects
-    return []
+    return meetings
 
 
 class Meeting:
     def __init__(self, **kwargs):
         # self.meetingType = meetingType  # string # "Lecture"
-        # self.campus = campus  # string # "Newark" "Fremont" "Distance Learning Via Web"
+        # self.start_date = start_date date object
+        # self.end_date = end_date date object
+        # self.location = location  # string # "Newark" "Fremont" "Distance Learning Via Web"
         # self.startTime = startTime  # Time object
         # self.endTime = endTime  # time object
+        # TODO Get faculty names for meetings
         # self.professorName = professorName  # name string
         # self.room = room  # string
         # self.recurrence = recurrence # list ['mon', 'tues', 'wed']
-        0
+        pass

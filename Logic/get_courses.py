@@ -39,6 +39,8 @@ for semester in semesters:
     for subject in subjects:
         queries.append({'term': semester, 'subject': subject, 'course_number': '', 'section': ''})
 
+if not os.path.exists('pickles'):
+    os.mkdir('pickles')
 os.chdir('pickles')
 
 
