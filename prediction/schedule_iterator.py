@@ -1,4 +1,4 @@
-from prediction/compare import compare
+from prediction.compare import compare
 #schedule_iterator.py
 #Recurssively iterates through a list of courses (a list of sections)
 #to concatenate a list of courses with a single section
@@ -17,7 +17,7 @@ def schedule_iterator( section_list , course_list , schedule_list , iffy_list ):
 ########################## 
 ##  Base Case 
 ##########################
-    if course_list.length() == 1:    
+    if len(course_list) == 1:    
         for i_section in course_list[0].sections:
             
             #check for good , iffy , or bad class time/location
@@ -36,7 +36,7 @@ def schedule_iterator( section_list , course_list , schedule_list , iffy_list ):
                 success_list.append( status )
 
             #bad section list
-            else status == 2 :
+            else:
                 success_list.append( status )
 
 ########################## 

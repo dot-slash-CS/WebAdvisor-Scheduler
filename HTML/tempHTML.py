@@ -4,7 +4,8 @@ The purpose of this program is to create a dynamic html file in the static folde
 The html file changes depending on what options you pass through parameters
 '''
 
-import os, getDept
+import os
+from HTML import getDept
 
 # the main call function (what you would call from other programs)
 # calls tempHTML()

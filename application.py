@@ -1,7 +1,10 @@
 from flask import Flask, request
 import flask
 from flaskext.mysql import MySQL
-import createHTML,testcase,addEntry,getSchedule
+from HTML import createHTML
+from HTML import testcase
+from HTML import addEntry
+from HTML import getSchedule
 
 application = Flask(__name__)
 mysql = MySQL()

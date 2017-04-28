@@ -1,5 +1,5 @@
 class Course:
-	def __init__(self,sections,credits,subject,course_number,tilte,desc):
+	def __init__(self,sections,credits,subject,course_number,title,desc):
 		self.sections = sections # list of section objects #
 		self.credits = credits # string #ex "" #
 		self.subject = subject #string 
@@ -9,7 +9,7 @@ class Course:
 
 
 class Section:
-	def __init__(self,startDate,endDate,meetings,number):
+	def __init__(self,startDate,endDate,meetings,section_number):
 		self.startDate = startDate # date(2017,3,5) == March 5th,2017
 		self.endDate = endDate # date(2017,4,15) == April 15th, 2017
 		self.meetings = meetings  #list of meeting objects

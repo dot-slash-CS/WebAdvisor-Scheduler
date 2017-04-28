@@ -32,6 +32,15 @@ class MeetingWrapper:
             seconds = meeting.endTime.second
         )
 
+    def __lt__(self,other):
+        return self.startTime.seconds < other.startTime.seconds
+
+    def __gt__(self,other):
+        return self.startTime.seconds > other.startTime.seconds  
+
+    def __eq__(self,other):
+        return self.startTime.seconds == other.startTime.seconds     
+
     # returns the duration of class meeting in seconds
     def duration(self):
         return (end - start).total_seconds()
@@ -40,10 +49,22 @@ class MeetingWrapper:
     # returns true if other_meeting overlaps with this one, false otherwise
     def overlaps_with(self, other_meeting, allowance=0):
         if self.day == other_meeting.day:
-            earlier = min(meeting1, meeting2, key=lambda m: m.startTime)
-            later   = max(meeting1, meeting2, key=lambda m: m.startTime)
+            earlier = min(self, other_meeting, key=lambda m: m.startTime)
+            later   = max(self, other_meeting, key=lambda m: m.startTime)
             return (later.startTime - earlier.endTime).total_seconds() < -allowance
         return False
+
+# Splits a list of lists into a single list of all contained elements
+#
+# Takes a list of lists
+# Returns a list
+
+def split_listList(outer_list):
+    single_list = []
+    for inner_list in outer_list:
+        for element in inner_list:
+            single_list.append(element)
+    return single_list
 
 
 # Takes a meeting object (LogicComm's version) as a parameter
@@ -60,13 +81,12 @@ def split_meeting(meeting):
 # Returns a list of pairs of meetings that overlap
 def overlapped_meeting_times(section1, section2):
     overlap = []
-    section_one_meetings = map(section1.meetings, lambda m: split_meeting(m))
-    section_two_meetings = map(section2.meetings, lambda m: split_meeting(m))
-
+    section_one_meetings = split_listList(list(map(lambda m: split_meeting(m), section1.meetings)))
+    section_two_meetings = split_listList(list(map(lambda m: split_meeting(m), section2.meetings)))
     for meeting1 in section_one_meetings:
         for meeting2 in section_two_meetings:
             if meeting1.overlaps_with(meeting2):
-                overlap.append(meeting1, meeting2)
+                overlap.append((meeting1,meeting2))
 
     return overlap
 
